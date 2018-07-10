@@ -1,0 +1,92 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.1"
+}
+
+project.afterEvaluate {
+    def buildTypes = android.buildTypes.collect { type -> type.name }
+    def productFlavors = android.productFlavors.collect { flavor -> flavor.name }
+    if (!productFlavors) productFlavors.add('')
+    def tasks = []
+    def excludes = [
+            '**/R.class',
+            '**/R$*.class',
+            '**/*$ViewInjector*.*',
+            '**/*$ViewBinder*.*',
+            '**/*_ViewBinding*.*',
+            '**/BuildConfig.*',
+            '**/*Application*.*',
+            '**/*Component*.*',
+            '**/*BR*.*',
+            '**/widgets/**',
+            '**/Manifest*.*',
+            '**/AutoValue*.*',
+            '**/*$Lambda$*.*',
+            '**/*Module.*',
+            '**/*RealmProxy.*',
+            '**/*Dagger*.*',
+            '**/*MembersInjector*.*',
+            '**/*_Factory*.*'
+    ]
+
+    // Create test coverage task for each of productFlavorName
+    productFlavors.each { productFlavorName ->
+
+        // Create a task base on taskName and sourcePath
+        def createTask = { testTaskName, sourcePath ->
+            task "${testTaskName}Coverage"(type: JacocoReport, dependsOn: "$testTaskName") {
+                group = "coverage"
+
+                // Config kotlin class path
+                def kotlinSourcePath
+                if (sourcePath.contains("/")) {
+                    def (flavor, buildType) = sourcePath.tokenize('/')
+                    kotlinSourcePath = "${flavor}${buildType.capitalize()}"
+                } else {
+                    kotlinSourcePath = sourcePath
+                }
+
+                classDirectories = files(
+                        fileTree(dir: "${project.buildDir}/intermediates/classes/${sourcePath}", excludes: excludes),
+                        fileTree(dir: "${project.buildDir}/tmp/kotlin-classes/${kotlinSourcePath}", excludes: excludes)
+                )
+                def coverageSourceDirs = [
+                        "src/main/java",
+                        "src/main/kotlin"
+                ]
+                additionalSourceDirs = files(coverageSourceDirs)
+                sourceDirectories = files(coverageSourceDirs)
+                executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
+
+                reports {
+                    xml.enabled = true
+                    xml.destination "${buildDir}/reports/jacoco/${testTaskName}Coverage/report.xml"
+                    html.enabled = true
+                }
+            }
+        }
+
+        // Create test coverage task for each of buildType and productFlavor
+        buildTypes.each { buildTypeName ->
+            def sourceName, sourcePath
+            if (!productFlavorName) {
+                sourceName = sourcePath = "${buildTypeName}"
+            } else {
+                sourceName = "${productFlavorName}${buildTypeName.capitalize()}"
+                sourcePath = "${productFlavorName}/${buildTypeName}"
+            }
+            def testTaskName = "test${sourceName.capitalize()}UnitTest"
+            createTask(testTaskName, sourcePath)
+            tasks.add("${testTaskName}Coverage")
+        }
+
+        // Create testCoverageTasks
+        task "testCoverage${productFlavorName.capitalize()}" {
+            group = "coverage"
+            tasks.each { taskName ->
+                dependsOn taskName
+            }
+        }
+    }
+}
