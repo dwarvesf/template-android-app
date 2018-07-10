@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../script/artifact.gradle'
+apply from: '../script/jacoco.gradle'
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    defaultConfig {
+        applicationId applicationPackage
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode buildVersionCode()
+        versionName version
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.kotlin
+    implementation libs.supportMultidex
+    implementation libs.timber
+    implementation libs.appcompatV7
+    implementation libs.supportV4
+    implementation libs.recyclerviewV7
+    implementation libs.constraintLayout
+}
+
+dependencies {
+    implementation libs.butterKnife
+    kapt libs.butterKnifeCompiler
+}
+
+dependencies {
+    implementation libs.glide
+    kapt libs.glideCompiler
+}
+
+dependencies {
+    implementation libs.dagger
+    implementation libs.daggerAndroidSupport
+    kapt libs.daggerCompiler
+    kapt libs.daggerAndroidProcessor
+}
+
+dependencies {
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+    implementation libs.rxKotlin
+    implementation libs.rxRelay
+    implementation libs.rxBinding
+}
+
+dependencies {
+    implementation libs.gson
+    implementation libs.retrofit
+    implementation libs.retrofitRxjavaAdapter
+    implementation libs.retrofitConverterGson
+    implementation libs.okHttp
+    implementation libs.okhttpLoggingInterceptor
+}
+
+dependencies {
+    testImplementation tests.junit
+    testImplementation tests.mockito
+    testImplementation tests.mockitoKotlin
+}
+
+dependencies {
+    androidTestImplementation tests.espressoRule
+    androidTestImplementation tests.espressoRunner
+    androidTestImplementation tests.espresso
+    androidTestImplementation tests.espressoContrib
+    androidTestImplementation tests.espressoIntents
+}
