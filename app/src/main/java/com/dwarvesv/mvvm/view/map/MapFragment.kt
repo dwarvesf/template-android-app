@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.base.BaseFragment
+import com.dwarvesv.mvvm.repository.UserRepository
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,12 +16,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_maps.*
 
 
-class MapFragment : com.dwarvesv.mvvm.base.BaseFragment(), MapContract.View, OnMapReadyCallback {
+class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private var listener: InteractionListener? = null
-    override lateinit var presenter: MapContract.Presenter
     private lateinit var gmap: GoogleMap
-
+    private lateinit var viewModel: MapViewModel
     companion object {
 
         fun newInstance() = MapFragment()
@@ -44,6 +45,7 @@ class MapFragment : com.dwarvesv.mvvm.base.BaseFragment(), MapContract.View, OnM
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
+        viewModel = MapViewModel(context, this, UserRepository.getInstance(userApi))
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
     }
@@ -77,7 +79,6 @@ class MapFragment : com.dwarvesv.mvvm.base.BaseFragment(), MapContract.View, OnM
 
     }
 
-    interface InteractionListener {
-    }
+    interface InteractionListener
 
 }

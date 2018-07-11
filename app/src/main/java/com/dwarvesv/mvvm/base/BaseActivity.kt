@@ -7,7 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 
 
-open class BaseActivity : AppCompatActivity(), com.dwarvesv.mvvm.base.BaseFragment.Callback {
+open class BaseActivity : AppCompatActivity(), BaseFragment.Callback {
 
     override fun onFragmentAttached() = Unit
 

@@ -6,18 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
 import com.dwarvesv.mvvm.utils.disposebag.disposedBy
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : com.dwarvesv.mvvm.base.BaseFragment(), HomeContract.View {
+class HomeFragment : com.dwarvesv.mvvm.base.BaseFragment() {
 
     private var listener: InteractionListener? = null
-    override lateinit var presenter: HomeContract.Presenter
     private val bag = DisposeBag(this)
-
+    private lateinit var viewModel: HomeViewModel
     companion object {
 
         fun newInstance() = HomeFragment()
@@ -42,6 +42,7 @@ class HomeFragment : com.dwarvesv.mvvm.base.BaseFragment(), HomeContract.View {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
+        viewModel = HomeViewModel(context, this, UserRepository.getInstance(userApi))
         RxView.clicks(btnMap)
                 .subscribe {
                     listener?.navigateToMap()

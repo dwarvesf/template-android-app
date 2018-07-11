@@ -8,7 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.base.BaseFragment
+import com.dwarvesv.mvvm.data.model.User
+import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.Constant.LIMIT
+import com.dwarvesv.mvvm.utils.EndlessRecyclerOnScrollListener
+import com.dwarvesv.mvvm.utils.getVisibilityView
 import com.dwarvesv.mvvm.view.list.adapter.MvpAdapter
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_base_list.*
@@ -16,17 +21,18 @@ import kotlinx.android.synthetic.main.layout_load_more.*
 import org.jetbrains.anko.support.v4.alert
 
 
-class ListFragment : com.dwarvesv.mvvm.base.BaseFragment(), ListContract.View {
+class ListFragment : BaseFragment() {
 
 
     private var listener: InteractionListener? = null
-    override lateinit var presenter: ListContract.Presenter
+
     private lateinit var mvpAdapter: MvpAdapter
     private var subscribe: Disposable? = null
-
-    private lateinit var onScrollListener: com.dwarvesv.mvvm.utils.EndlessRecyclerOnScrollListener
+    private lateinit var viewModel: ListViewModel
+    private lateinit var onScrollListener: EndlessRecyclerOnScrollListener
     lateinit var linearLayoutManager: LinearLayoutManager
-    private var mListData: ArrayList<com.dwarvesv.mvvm.data.model.User> = ArrayList()
+    private var mListData: ArrayList<User> = ArrayList()
+    private var curOffset: Int = 0
 
     companion object {
 
@@ -47,9 +53,24 @@ class ListFragment : com.dwarvesv.mvvm.base.BaseFragment(), ListContract.View {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        presenter = ListPresenter(this, com.dwarvesv.mvvm.repository.UserRepository.getInstance(userApi), context)
+        viewModel = ListViewModel(context, this, UserRepository.getInstance(userApi))
+
+
+        viewModel.getListData(LIMIT, curOffset, false)
+        viewModel.isShowRefreshing.subscribe {
+            isShowRefreshing(it)
+        }
+        viewModel.isShowLoadMore.subscribe {
+            isShowLoadMore(it)
+        }
+        viewModel.isShowAlertDialog.subscribe {
+            showAlertDialog(R.string.title_connection_lost, R.string.msg_no_internet_connection)
+        }
+        viewModel.onResultsReceived.subscribe {
+            onResultsReceived(it)
+        }
+
         setUpRecyclerView()
-        presenter.getListData(LIMIT, 0, false)
     }
 
     private fun setUpRecyclerView() {
@@ -57,7 +78,8 @@ class ListFragment : com.dwarvesv.mvvm.base.BaseFragment(), ListContract.View {
         mvpAdapter = MvpAdapter()
         onScrollListener = object : com.dwarvesv.mvvm.utils.EndlessRecyclerOnScrollListener(linearLayoutManager) {
             override fun onLoadMore(currentOffset: Int) {
-                presenter.getListData(LIMIT, currentOffset, false)
+                curOffset = currentOffset
+                viewModel.getListData(LIMIT, curOffset, false)
             }
         }
 
@@ -72,7 +94,8 @@ class ListFragment : com.dwarvesv.mvvm.base.BaseFragment(), ListContract.View {
 
         swipeRefreshLayout.setOnRefreshListener {
             onScrollListener.reset(0, false)
-            presenter.getListData(LIMIT, 0, true)
+            curOffset = 0
+            viewModel.getListData(LIMIT, curOffset, true)
         }
 
         subscribe = mvpAdapter.clickEvent
@@ -82,38 +105,30 @@ class ListFragment : com.dwarvesv.mvvm.base.BaseFragment(), ListContract.View {
 
     }
 
-    override fun showAlertDialog(titleResId: Int, messageResId: Int) {
+
+    private fun showAlertDialog(titleResId: Int, messageResId: Int) {
         alert(messageResId) {
             title = getString(titleResId)
             negativeButton(getString(R.string.ok), onClicked = {})
         }.show()
     }
 
-    override fun onResultsReceived(listData: ArrayList<com.dwarvesv.mvvm.data.model.User>, offset: Int) {
-        if (offset == 0) mListData.clear()
+    private fun onResultsReceived(listData: ArrayList<User>) {
+        if (curOffset == 0) mListData.clear()
         mListData.addAll(listData)
         mvpAdapter.submitList(mListData)
-        if (listData.isEmpty()) {
-            layoutEmpty.visibility = View.VISIBLE
-        } else {
-            layoutEmpty.visibility = View.GONE
-        }
+
+        layoutEmpty.visibility = getVisibilityView(listData.isEmpty())
+
     }
 
-    override fun showRefreshing() {
-        swipeRefreshLayout.isRefreshing = true
+    private fun isShowRefreshing(isShow: Boolean) {
+        swipeRefreshLayout.isRefreshing = isShow
     }
 
-    override fun hideRefreshing() {
-        swipeRefreshLayout.isRefreshing = false
-    }
 
-    override fun showLoadMore() {
-        layoutLoadMore.visibility = View.VISIBLE
-    }
-
-    override fun hideLoadMore() {
-        layoutLoadMore.visibility = View.GONE
+    private fun isShowLoadMore(isShow: Boolean) {
+        layoutLoadMore.visibility = getVisibilityView(isShow)
     }
 
     override fun onDetach() {
@@ -122,7 +137,7 @@ class ListFragment : com.dwarvesv.mvvm.base.BaseFragment(), ListContract.View {
     }
 
     interface InteractionListener {
-        fun navigateToDetail(user: com.dwarvesv.mvvm.data.model.User)
+        fun navigateToDetail(user: User)
     }
 
 }

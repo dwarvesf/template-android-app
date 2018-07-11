@@ -2,8 +2,9 @@ package com.dwarvesv.mvvm.view.detail
 
 import android.os.Bundle
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.base.BaseNoAppBarActivity
 
-class DetailActivity : com.dwarvesv.mvvm.base.BaseNoAppBarActivity(), DetailFragment.InteractionListener {
+class DetailActivity : BaseNoAppBarActivity(), DetailFragment.InteractionListener {
 
     private lateinit var detailFragment: DetailFragment
 

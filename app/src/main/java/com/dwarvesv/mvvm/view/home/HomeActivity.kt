@@ -3,12 +3,13 @@ package com.dwarvesv.mvvm.view.home
 
 import android.os.Bundle
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.base.BaseNoAppBarActivity
 import com.dwarvesv.mvvm.view.list.ListActivity
 import com.dwarvesv.mvvm.view.map.MapActivity
 import org.jetbrains.anko.intentFor
 
 
-class HomeActivity : com.dwarvesv.mvvm.base.BaseNoAppBarActivity(), HomeFragment.InteractionListener {
+class HomeActivity : BaseNoAppBarActivity(), HomeFragment.InteractionListener {
 
     private lateinit var homeFragment: HomeFragment
 

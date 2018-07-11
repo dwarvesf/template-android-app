@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.base.BaseFragment
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
 import com.dwarvesv.mvvm.utils.disposebag.disposedBy
@@ -13,20 +14,16 @@ import com.dwarvesv.mvvm.utils.getErrorHintEmail
 import com.dwarvesv.mvvm.utils.getErrorHintPassword
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
-import io.reactivex.Observable
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.alert
 
 
-class LoginFragment : com.dwarvesv.mvvm.base.BaseFragment() {
+class LoginFragment : BaseFragment() {
 
     private var listener: InteractionListener? = null
 
     private val bag = DisposeBag(this)
     private lateinit var viewModel: LoginViewModel
-    private lateinit var isLoginEnable: Observable<Boolean>
-    private lateinit var emailObservable: Observable<CharSequence>
-    private lateinit var passwordObservable: Observable<CharSequence>
 
     companion object {
         fun getInstance() = LoginFragment()

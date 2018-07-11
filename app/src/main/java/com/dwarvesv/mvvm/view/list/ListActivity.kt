@@ -2,12 +2,13 @@ package com.dwarvesv.mvvm.view.list
 
 import android.os.Bundle
 import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.base.BaseNoAppBarActivity
 import com.dwarvesv.mvvm.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
 import com.dwarvesv.mvvm.view.detail.DetailActivity
 import org.jetbrains.anko.intentFor
 
 
-class ListActivity : com.dwarvesv.mvvm.base.BaseNoAppBarActivity(), ListFragment.InteractionListener {
+class ListActivity : BaseNoAppBarActivity(), ListFragment.InteractionListener {
 
     private lateinit var listFragment: ListFragment
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.dwarvesv.mvvm.R
 
 
-open class BaseNoAppBarActivity : com.dwarvesv.mvvm.base.BaseActivity() {
+open class BaseNoAppBarActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

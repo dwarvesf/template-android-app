@@ -4,11 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
+import com.dwarvesv.mvvm.service.UserApi
+import com.dwarvesv.mvvm.service.UserService
 
 abstract class BaseFragment : Fragment() {
 
-    private var mActivity: com.dwarvesv.mvvm.base.BaseActivity? = null
-    lateinit var userApi: com.dwarvesv.mvvm.service.UserApi
+    private var mActivity: BaseActivity? = null
+    lateinit var userApi: UserApi
 
     interface Callback {
 
@@ -19,7 +21,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is com.dwarvesv.mvvm.base.BaseActivity) {
+        if (context is BaseActivity) {
             mActivity = context
             context.onFragmentAttached()
         }
@@ -28,7 +30,7 @@ abstract class BaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(false)
-        userApi = com.dwarvesv.mvvm.service.UserService.getInstance().api
+        userApi = UserService.getInstance().api
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

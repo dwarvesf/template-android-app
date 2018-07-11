@@ -1,7 +1,10 @@
 package com.dwarvesv.mvvm.utils
 
+import com.dwarvesv.mvvm.repository.UserRepository
+import com.dwarvesv.mvvm.service.UserApi
+
 object Injection {
-    fun provideUserRepository(userApi: com.dwarvesv.mvvm.service.UserApi): com.dwarvesv.mvvm.repository.UserRepository {
-        return com.dwarvesv.mvvm.repository.UserRepository.getInstance(userApi)
+    fun provideUserRepository(userApi: UserApi): UserRepository {
+        return UserRepository.getInstance(userApi)
     }
 }

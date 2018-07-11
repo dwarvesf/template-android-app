@@ -1,17 +1,22 @@
 package com.dwarvesv.mvvm.repository
 
+import com.dwarvesv.mvvm.data.model.User
+import com.dwarvesv.mvvm.data.request.GetUsersRequest
+import com.dwarvesv.mvvm.data.request.LoginRequest
+import com.dwarvesv.mvvm.data.response.LoginResponse
+import com.dwarvesv.mvvm.service.UserApi
 import io.reactivex.Single
 import retrofit2.Response
 
-class UserRepository(private val userApi: com.dwarvesv.mvvm.service.UserApi) {
+class UserRepository(private val userApi: UserApi) {
 
-    fun login(request: com.dwarvesv.mvvm.data.request.LoginRequest
-    ): Single<Response<com.dwarvesv.mvvm.data.response.LoginResponse>> {
+    fun login(request: LoginRequest
+    ): Single<Response<LoginResponse>> {
         return userApi.login(request)
     }
 
-    fun getListData(request: com.dwarvesv.mvvm.data.request.GetUsersRequest
-    ): Single<Response<ArrayList<com.dwarvesv.mvvm.data.model.User>>> {
+    fun getListData(request: GetUsersRequest
+    ): Single<Response<ArrayList<User>>> {
         return userApi.getListData(request)
     }
 
@@ -21,7 +26,7 @@ class UserRepository(private val userApi: com.dwarvesv.mvvm.service.UserApi) {
 
 
         @JvmStatic
-        fun getInstance(userApi: com.dwarvesv.mvvm.service.UserApi): UserRepository {
+        fun getInstance(userApi: UserApi): UserRepository {
             return INSTANCE ?: UserRepository(userApi)
                     .apply { INSTANCE = this }
         }
