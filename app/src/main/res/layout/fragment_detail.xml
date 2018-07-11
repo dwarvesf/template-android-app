@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="9dp">
+
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent" />
+
+    <RelativeLayout
+        android:id="@+id/tlIdentification"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/ivProfileImage"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/ivProfileImage">
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLength="21"
+            android:text="Test UserName"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivVerifiedBadge"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@+id/tvUserName"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/ivVerifiedBadge"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="\@BAPS"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tlIdentification"
+        android:layout_below="@+id/tlIdentification"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:lineSpacingExtra="2dp"
+        android:paddingEnd="30dp"
+        android:text="This is test content"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+
+</RelativeLayout>

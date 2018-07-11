@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:id="@+id/btnMap"
+            style="?android:textAppearanceSmall"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Map Page"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnList"
+            style="?android:textAppearanceSmall"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/btnMap"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="List Page"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+</RelativeLayout>
