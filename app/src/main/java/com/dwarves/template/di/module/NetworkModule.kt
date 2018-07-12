@@ -1,7 +1,7 @@
 package com.dwarves.template.di.module
 
 import com.dwarves.template.BuildConfig
-import com.dwarves.template.data.AuthStorage
+import com.dwarves.template.data.storage.AuthStorage
 import com.dwarves.template.di.ApplicationScope
 import com.dwarves.template.util.AUTHORIZATION
 import com.dwarves.template.util.BASE_URL
