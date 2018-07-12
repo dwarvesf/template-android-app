@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.base.BaseFragment
+import com.dwarvesv.mvvm.data.model.User
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.Keys
 import kotlinx.android.synthetic.main.fragment_detail.*
@@ -48,7 +49,7 @@ class DetailFragment : BaseFragment() {
         }
     }
 
-    private fun setData(user: com.dwarvesv.mvvm.data.model.User) {
+    private fun setData(user: User) {
         tvUserName.text = user.name
     }
 

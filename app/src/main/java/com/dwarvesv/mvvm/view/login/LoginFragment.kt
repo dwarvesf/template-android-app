@@ -87,8 +87,12 @@ class LoginFragment : BaseFragment() {
             listener?.navigateToHome()
         }
         viewModel.outputs.loginSuccess.subscribe {
-            listener?.navigateToHome()
+            navigateToHome()
         }
+    }
+
+    private fun navigateToHome() {
+        listener?.navigateToHome()
     }
 
     private fun onTextChanges() {

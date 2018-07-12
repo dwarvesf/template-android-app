@@ -14,15 +14,16 @@
  *  limitations under the License
  */
 
-package com.dwarvesv.mvvm
+package com.dwarvesv.mvvm.view
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import com.dwarvesv.mvvm.view.map.MapActivity
-import com.dwarvesv.mvvm.view.map.MapFragment
+import com.dwarvesv.mvvm.R
+import com.dwarvesv.mvvm.view.home.HomeActivity
+import com.dwarvesv.mvvm.view.home.HomeFragment
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -30,26 +31,29 @@ import org.junit.runner.RunWith
 
 
 @RunWith(AndroidJUnit4::class)
-class MapActivityTest {
+class HomeActivityTest {
 
     @Rule
     @JvmField
-    var mActivityRule = ActivityTestRule(MapActivity::class.java)
+    var mActivityRule = ActivityTestRule(HomeActivity::class.java)
 
-    var mapFragment: MapFragment = MapFragment.newInstance()
-
+    private var homeFragment: HomeFragment = HomeFragment.newInstance()
 
     @Before
     fun init() {
-        mActivityRule.activity.setFragment(mapFragment)
+        mActivityRule.activity.setFragment(homeFragment)
     }
 
     @Test
     fun checkViewsDisplay() {
-        onView(withContentDescription("Google Map"))
-        onView(withId(R.id.mapView))
+        onView(withId(R.id.btnMap))
                 .check(matches(isDisplayed()))
+
+        onView(withId(R.id.btnList))
+                .check(matches(isDisplayed()))
+
+        onView(withId(R.id.btnMap)).check(matches(withText("Map Page")))
+
+        onView(withId(R.id.btnList)).check(matches(withText("List Page")))
     }
-
-
 }

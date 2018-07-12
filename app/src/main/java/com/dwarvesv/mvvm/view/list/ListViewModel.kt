@@ -1,12 +1,9 @@
 package com.dwarvesv.mvvm.view.list
 
-import android.arch.lifecycle.LifecycleOwner
 import android.content.Context
 import com.dwarvesv.mvvm.data.model.User
 import com.dwarvesv.mvvm.data.request.GetUsersRequest
 import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
-import com.dwarvesv.mvvm.utils.disposebag.disposedBy
 import com.dwarvesv.mvvm.utils.isNetworkConnected
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -30,7 +27,7 @@ interface ListViewModelViewModelOutputs {
 
 }
 
-class ListViewModel(var context: Context?, lifeCycle: LifecycleOwner, private val userRepository: UserRepository)
+class ListViewModel(var context: Context?, private val userRepository: UserRepository)
     : ListViewModelViewModelInputs, ListViewModelViewModelOutputs {
 
     override val isShowRefreshing: PublishSubject<Boolean> = PublishSubject.create()
@@ -39,8 +36,6 @@ class ListViewModel(var context: Context?, lifeCycle: LifecycleOwner, private va
 
     val inputs: ListViewModelViewModelInputs = this
     val outputs: ListViewModelViewModelOutputs = this
-
-    private val bag = DisposeBag(lifeCycle)
 
     private val getListDataPublishSubject: PublishSubject<ArrayList<User>> = PublishSubject.create()
     override val onResultsReceived: Observable<ArrayList<User>> = getListDataPublishSubject
@@ -84,7 +79,7 @@ class ListViewModel(var context: Context?, lifeCycle: LifecycleOwner, private va
                             callHideIndicator(offset)
 
                             isShowAlertDialog.onNext(true)
-                        }).disposedBy(bag)
+                        })
     }
 
     private fun callHideIndicator(offset: Int) {

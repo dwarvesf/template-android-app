@@ -53,7 +53,7 @@ class ListFragment : BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = ListViewModel(context, this, UserRepository.getInstance(userApi))
+        viewModel = ListViewModel(context, UserRepository.getInstance(userApi))
 
 
         viewModel.getListData(LIMIT, curOffset, false)
