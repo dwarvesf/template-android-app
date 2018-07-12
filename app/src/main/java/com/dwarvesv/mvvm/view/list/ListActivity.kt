@@ -10,17 +10,20 @@ import org.jetbrains.anko.intentFor
 
 class ListActivity : BaseNoAppBarActivity(), ListFragment.InteractionListener {
 
-    private lateinit var listFragment: ListFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            listFragment = ListFragment.newInstance()
-            replaceFragment(R.id.fragmentContainer, listFragment)
+            setFragment(ListFragment.newInstance())
         }
+
         setToolbarTitle(getString(R.string.activity_title_list))
         setDisplayHomeAsUpEnabled(true)
     }
+
+    fun setFragment(listFragment: ListFragment) {
+        replaceFragment(R.id.fragmentContainer, listFragment)
+    }
+
 
     override fun navigateToDetail(user: com.dwarvesv.mvvm.data.model.User) {
         startActivity(intentFor<DetailActivity>(BUNDLE_PARCELABLE_KEY_DATAMVP to user))

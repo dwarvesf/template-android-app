@@ -42,7 +42,7 @@ class HomeFragment : com.dwarvesv.mvvm.base.BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = HomeViewModel(context, this, UserRepository.getInstance(userApi))
+        viewModel = HomeViewModel(UserRepository.getInstance(userApi))
         RxView.clicks(btnMap)
                 .subscribe {
                     listener?.navigateToMap()

@@ -13,11 +13,14 @@ class MapActivity : BaseNoAppBarActivity(), MapFragment.InteractionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            mapFragment = MapFragment.newInstance()
-            replaceFragment(R.id.fragmentContainer, mapFragment)
+            setFragment(MapFragment.newInstance())
         }
         setToolbarTitle(getString(R.string.activity_title_map))
         setDisplayHomeAsUpEnabled(true)
+    }
+
+    fun setFragment(mapFragment: MapFragment) {
+        replaceFragment(R.id.fragmentContainer, mapFragment)
     }
 
 }

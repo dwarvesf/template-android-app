@@ -13,10 +13,14 @@ class LoginActivity : BaseNoAppBarActivity(), LoginFragment.InteractionListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            loginFragment = LoginFragment.getInstance()
-            replaceFragment(R.id.fragmentContainer, loginFragment!!)
+            setFragment(LoginFragment.getInstance())
         }
     }
+
+    fun setFragment(loginFragment: LoginFragment) {
+        replaceFragment(R.id.fragmentContainer, loginFragment)
+    }
+
 
     override fun onDestroy() {
         loginFragment = null

@@ -40,7 +40,7 @@ class DetailFragment : BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = DetailViewModel(context, this, UserRepository.getInstance(userApi))
+        viewModel = DetailViewModel(UserRepository.getInstance(userApi))
         val args = arguments
         if (args != null) {
             val user: com.dwarvesv.mvvm.data.model.User = args.getParcelable(Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP) as com.dwarvesv.mvvm.data.model.User

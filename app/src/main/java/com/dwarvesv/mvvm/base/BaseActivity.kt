@@ -29,7 +29,7 @@ open class BaseActivity : AppCompatActivity(), BaseFragment.Callback {
     protected fun replaceFragment(containerViewId: Int, fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(containerViewId, fragment)
-        fragmentTransaction.commit()
+        fragmentTransaction.commitAllowingStateLoss()
     }
 
     fun showToast(message: String?) {

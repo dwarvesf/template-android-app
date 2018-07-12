@@ -45,7 +45,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = MapViewModel(context, this, UserRepository.getInstance(userApi))
+        viewModel = MapViewModel(UserRepository.getInstance(userApi))
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
     }

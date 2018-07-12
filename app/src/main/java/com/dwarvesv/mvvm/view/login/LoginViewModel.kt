@@ -1,13 +1,9 @@
 package com.dwarvesv.mvvm.view.login
 
-import android.arch.lifecycle.LifecycleOwner
-import android.content.Context
 import com.dwarvesv.mvvm.data.request.LoginRequest
 import com.dwarvesv.mvvm.data.response.LoginResponse
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.CheckValidUtils
-import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
-
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction
@@ -36,14 +32,13 @@ interface LoginViewModelOutputs {
     val loginFailure: Observable<String>
 }
 
-class LoginViewModel(var context: Context?, lifeCycle: LifecycleOwner, private val userRepository: UserRepository) : LoginViewModelInputs, LoginViewModelOutputs {
+class LoginViewModel(private val userRepository: UserRepository) : LoginViewModelInputs, LoginViewModelOutputs {
     override val isEmailEnable: PublishSubject<Boolean> = PublishSubject.create()
     override val isPasswordEnable: PublishSubject<Boolean> = PublishSubject.create()
 
     val inputs: LoginViewModelInputs = this
     val outputs: LoginViewModelOutputs = this
 
-    private val bag = DisposeBag(lifeCycle)
 
     override var emailPublish: PublishSubject<CharSequence?> = PublishSubject.create()
     override var passwordPublish: PublishSubject<CharSequence?> = PublishSubject.create()

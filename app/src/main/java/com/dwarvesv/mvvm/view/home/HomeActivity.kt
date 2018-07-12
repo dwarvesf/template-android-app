@@ -11,16 +11,17 @@ import org.jetbrains.anko.intentFor
 
 class HomeActivity : BaseNoAppBarActivity(), HomeFragment.InteractionListener {
 
-    private lateinit var homeFragment: HomeFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            homeFragment = HomeFragment.newInstance()
-            replaceFragment(R.id.fragmentContainer, homeFragment)
+            setFragment(HomeFragment.newInstance())
         }
         setToolbarTitle(getString(R.string.activity_title_home))
         setDisplayHomeAsUpEnabled(false)
+    }
+
+    fun setFragment(homeFragment: HomeFragment) {
+        replaceFragment(R.id.fragmentContainer, homeFragment)
     }
 
     override fun navigateToList() {

@@ -44,7 +44,7 @@ class LoginFragment : BaseFragment() {
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
 
-        viewModel = LoginViewModel(context, this, UserRepository.getInstance(userApi))
+        viewModel = LoginViewModel(UserRepository.getInstance(userApi))
 
         RxView.clicks(btnLogin)
                 .subscribe { _ ->
