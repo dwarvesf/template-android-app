@@ -1,4 +1,4 @@
-package com.dwarves.template.data
+package com.dwarves.template.data.storage
 
 class AuthStorage {
 
