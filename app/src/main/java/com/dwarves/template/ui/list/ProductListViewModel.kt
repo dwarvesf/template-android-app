@@ -3,6 +3,8 @@ package com.dwarves.template.ui.list
 import android.os.Parcelable
 import com.dwarves.template.domain.product.GetProductsUseCase
 import com.dwarves.template.domain.product.RemoveProductUseCase
+import com.dwarves.template.support.LoadingManager
+import com.dwarves.template.support.Navigator
 import com.dwarves.template.ui.list.adapter.ProductItemViewModel
 import com.dwarves.template.ui.list.adapter.ProductListAdapter
 import com.dwarves.template.ui.list.adapter.toProductItems
@@ -12,14 +14,15 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.parcel.Parcelize
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 class ProductListViewModel(
-        private val loadingManagerManager: ProductListLoadingManager,
+        private val loadingManagerManager: LoadingManager,
         private val getProductsUseCase: GetProductsUseCase,
-        private val removeProductUseCase: RemoveProductUseCase
+        private val removeProductUseCase: RemoveProductUseCase,
+        private val navigator: Navigator
 ) {
     private val disposables = CompositeDisposable()
     private val products = BehaviorRelay.createDefault(emptyList<ProductItemViewModel>())
@@ -42,10 +45,19 @@ class ProductListViewModel(
     fun bind(input: Input): Output {
         disposables.addAll(
                 removeProduct(input),
-                loadProducts(input)
+                loadProducts(input),
+                openProductDetail(input)
         )
 
         return Output(products.hide())
+    }
+
+    private fun openProductDetail(input: Input): Disposable {
+        return input.listEvents.filter { it.second == ProductListAdapter.EventType.CLICK }
+                .debounce(300, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMapCompletable { navigator.toProductDetail(it.first) }
+                .subscribe({}, Timber::e)
     }
 
     fun unbind() {
@@ -79,15 +91,14 @@ class ProductListViewModel(
     private fun removeProduct(event: Pair<Long, ProductListAdapter.EventType>): Single<Long> {
         return removeProductUseCase.execute(event.first)
                 .onErrorReturnItem(-1)
-                .subscribeOn(Schedulers.io())
     }
 
     private fun loadProducts(input: Input): Disposable {
         val task = if (input.savedState == null)
-            input.loadProducts.switchMapSingle { loadProducts() }
+            input.loadProducts.switchMap { loadProducts() }
         else
             input.loadProducts.skip(1)
-                    .switchMapSingle { loadProducts() }
+                    .switchMap { loadProducts() }
                     .startWith(input.savedState.products)
 
         return task.observeOn(AndroidSchedulers.mainThread())
@@ -96,11 +107,10 @@ class ProductListViewModel(
                 }, Timber::e)
     }
 
-    private fun loadProducts(): Single<List<ProductItemViewModel>> {
+    private fun loadProducts(): Observable<List<ProductItemViewModel>> {
         return getProductsUseCase.execute()
                 .map { toProductItems(it) }
                 .onErrorReturnItem(products.value)
-                .subscribeOn(Schedulers.io())
                 .compose(loadingManagerManager.bind())
     }
 

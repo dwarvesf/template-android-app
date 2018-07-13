@@ -13,7 +13,6 @@ import dagger.android.support.AndroidSupportInjectionModule
 
 @Module(includes = [
     NetworkModule::class,
-    StorageModule::class,
     BindingModule::class,
     AndroidSupportInjectionModule::class
 ])
