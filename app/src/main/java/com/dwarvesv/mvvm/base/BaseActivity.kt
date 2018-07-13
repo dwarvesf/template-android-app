@@ -3,7 +3,6 @@ package com.dwarvesv.mvvm.base
 
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.view.MenuItem
 import android.widget.Toast
 
 
@@ -37,26 +36,4 @@ open class BaseActivity : AppCompatActivity(), BaseFragment.Callback {
     }
 
 
-    fun setToolbarTitle(title: String?) {
-        supportActionBar!!.title = title
-    }
-
-    fun setDisplayHomeAsUpEnabled(enabled: Boolean) {
-        supportActionBar!!.setDisplayHomeAsUpEnabled(enabled)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
-    fun setHomeButtonEnabled(enabled: Boolean) {
-        supportActionBar!!.setHomeButtonEnabled(enabled)
-    }
 }

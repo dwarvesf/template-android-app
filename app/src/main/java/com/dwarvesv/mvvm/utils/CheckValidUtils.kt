@@ -1,7 +1,7 @@
 package com.dwarvesv.mvvm.utils
 
+
 import android.text.TextUtils
-import android.text.TextUtils.isEmpty
 import android.util.Patterns
 import android.util.Patterns.PHONE
 import java.util.regex.Pattern
@@ -15,10 +15,11 @@ object CheckValidUtils {
     }
 
     fun isValidEmail(target: CharSequence?): Boolean {
-        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
+        val emailPattern = Patterns.EMAIL_ADDRESS
+        return !TextUtils.isEmpty(target) && emailPattern.matcher(target).matches()
     }
 
     fun isPhoneNumberValid(phoneNumber: CharSequence): Boolean {
-        return !isEmpty(phoneNumber) && PHONE.matcher(phoneNumber).matches() && phoneNumber.length >= 9 && phoneNumber.length <= 14
+        return !TextUtils.isEmpty(phoneNumber) && PHONE.matcher(phoneNumber).matches() && phoneNumber.length >= 9 && phoneNumber.length <= 14
     }
 }
