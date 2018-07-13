@@ -7,6 +7,7 @@ import com.dwarves.template.domain.product.GetProductsUseCase
 import com.dwarves.template.domain.product.RemoveProductUseCase
 import com.dwarves.template.support.Navigator
 import com.dwarves.template.support.NavigatorImpl
+import com.dwarves.template.support.ResourceProvider
 import com.dwarves.template.ui.list.adapter.ProductListAdapter
 import dagger.Module
 import dagger.Provides
@@ -20,9 +21,16 @@ class ProductListModule {
             loadingManager: ProductListLoadingManager,
             getProductsUseCase: GetProductsUseCase,
             removeProductUseCase: RemoveProductUseCase,
+            resourceProvider: ResourceProvider,
             navigator: Navigator
     ): ProductListViewModel {
-        return ProductListViewModel(loadingManager, getProductsUseCase, removeProductUseCase, navigator)
+        return ProductListViewModel(loadingManager, getProductsUseCase, removeProductUseCase, resourceProvider, navigator)
+    }
+
+    @ActivityScope
+    @Provides
+    fun provideResourceProvider(context: Context): ResourceProvider {
+        return ResourceProvider(context)
     }
 
     @ActivityScope

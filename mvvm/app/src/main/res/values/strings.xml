@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Template</string>
+    <string name="items">%d items</string>
 </resources>

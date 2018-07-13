@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.view.inputmethod.InputMethodManager
 import com.dwarves.template.di.ApplicationScope
-import com.dwarves.template.support.ResourceProvider
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -33,11 +32,5 @@ class AppModule {
     @ApplicationScope
     fun providePackageManager(application: Application): PackageManager {
         return application.packageManager
-    }
-
-    @Provides
-    @ApplicationScope
-    fun provideResourceProvider(application: Application): ResourceProvider {
-        return ResourceProvider(application)
     }
 }

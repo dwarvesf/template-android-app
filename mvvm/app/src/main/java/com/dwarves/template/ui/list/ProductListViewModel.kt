@@ -1,10 +1,12 @@
 package com.dwarves.template.ui.list
 
 import android.os.Parcelable
+import com.dwarves.template.R
 import com.dwarves.template.domain.product.GetProductsUseCase
 import com.dwarves.template.domain.product.RemoveProductUseCase
 import com.dwarves.template.support.LoadingManager
 import com.dwarves.template.support.Navigator
+import com.dwarves.template.support.ResourceProvider
 import com.dwarves.template.ui.list.adapter.ProductItemViewModel
 import com.dwarves.template.ui.list.adapter.ProductListAdapter
 import com.dwarves.template.ui.list.adapter.toProductItems
@@ -22,6 +24,7 @@ class ProductListViewModel(
         private val loadingManagerManager: LoadingManager,
         private val getProductsUseCase: GetProductsUseCase,
         private val removeProductUseCase: RemoveProductUseCase,
+        private val resourceProvider: ResourceProvider,
         private val navigator: Navigator
 ) {
     private val disposables = CompositeDisposable()
@@ -39,7 +42,8 @@ class ProductListViewModel(
     )
 
     class Output(
-            val products: Observable<List<ProductItemViewModel>>
+            val products: Observable<List<ProductItemViewModel>>,
+            val title: Observable<String>
     )
 
     fun bind(input: Input): Output {
@@ -49,7 +53,11 @@ class ProductListViewModel(
                 openProductDetail(input)
         )
 
-        return Output(products.hide())
+        val products = products.hide()
+        val title = products.map { it.size }
+                .map { resourceProvider.getString(R.string.items, it) }
+
+        return Output(products, title)
     }
 
     private fun openProductDetail(input: Input): Disposable {

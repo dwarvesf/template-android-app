@@ -2,8 +2,6 @@ package com.dwarves.template.ui.list
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import butterknife.BindView
 import butterknife.ButterKnife
 import com.dwarves.template.R
 import com.dwarves.template.ui.list.adapter.ProductItemViewModel
@@ -12,6 +10,8 @@ import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_product_list.rvProduct
+import kotlinx.android.synthetic.main.activity_product_list.tvTitle
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -26,9 +26,6 @@ class ProductListActivity : DaggerAppCompatActivity() {
     lateinit var adapter: ProductListAdapter
     @Inject
     lateinit var loadingManager: ProductListLoadingManager
-
-    @BindView(R.id.rvProduct)
-    lateinit var rvProduct: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +49,14 @@ class ProductListActivity : DaggerAppCompatActivity() {
         ))
 
         bindProducts(output.products)
+        bindTitle(output.title)
+    }
+
+    private fun bindTitle(title: Observable<String>) {
+        disposables.add(title.observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    tvTitle.text = it
+                }, Timber::e))
     }
 
     private fun bindProducts(products: Observable<List<ProductItemViewModel>>) {

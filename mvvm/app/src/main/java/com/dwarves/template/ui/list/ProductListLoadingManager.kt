@@ -11,7 +11,7 @@ class ProductListLoadingManager(
         private val activity: Activity
 ) : LoadingManager {
 
-    @BindView(R.id.rvProduct)
+    @BindView(R.id.content)
     lateinit var content: View
     @BindView(R.id.pbLoading)
     lateinit var loading: View
