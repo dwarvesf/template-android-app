@@ -4,7 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.dwarves.template.R
-import com.dwarves.template.ui.list.ProductListActivity
+import com.dwarves.template.ui.products.ProductListActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -12,5 +12,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         startActivity(Intent(this, ProductListActivity::class.java))
+        finish()
     }
 }

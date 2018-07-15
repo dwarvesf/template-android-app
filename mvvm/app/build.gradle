@@ -61,6 +61,7 @@ dependencies {
     implementation libs.rxKotlin
     implementation libs.rxRelay
     implementation libs.rxBinding
+    implementation libs.rxBindingV4
 }
 
 dependencies {

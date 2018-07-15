@@ -1,4 +1,4 @@
-package com.dwarves.template.ui.list
+package com.dwarves.template.ui.products
 
 import android.app.Activity
 import android.view.View

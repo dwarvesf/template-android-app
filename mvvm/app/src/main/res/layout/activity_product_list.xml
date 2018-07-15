@@ -5,25 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.splash.SplashActivity">
 
-    <LinearLayout
-        android:id="@+id/content"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srlProduct"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvTitle"
+        <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/space_small"
-            android:textSize="@dimen/size_medium"
-            tools:text="100 items" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvProduct"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_small"
+                android:textSize="@dimen/size_medium"
+                tools:text="100 items" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <ProgressBar
         android:id="@+id/pbLoading"

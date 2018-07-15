@@ -1,4 +1,4 @@
-package com.dwarves.template.ui.list.adapter
+package com.dwarves.template.ui.products.list
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.view.LayoutInflater

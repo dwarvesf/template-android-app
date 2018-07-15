@@ -1,7 +1,7 @@
 package com.dwarves.template.support
 
+import com.dwarves.template.util.observeOnMain
 import io.reactivex.ObservableTransformer
-import io.reactivex.android.schedulers.AndroidSchedulers
 
 interface LoadingManager {
     fun show()
@@ -11,7 +11,7 @@ interface LoadingManager {
     fun <T> bind(): ObservableTransformer<T, T> {
         return ObservableTransformer {
             return@ObservableTransformer it
-                    .observeOn(AndroidSchedulers.mainThread())
+                    .observeOnMain()
                     .doOnSubscribe { show() }
                     .doFinally { hide() }
         }
