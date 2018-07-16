@@ -83,7 +83,7 @@ class ProductListActivity : DaggerAppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         outState?.run {
-            putParcelable(STATE, viewModel.createSavedStated())
+            putParcelable(STATE, viewModel.createSavedState())
         }
         super.onSaveInstanceState(outState)
     }

@@ -27,7 +27,8 @@ project.afterEvaluate {
             '**/*RealmProxy.*',
             '**/*Dagger*.*',
             '**/*MembersInjector*.*',
-            '**/*_Factory*.*'
+            '**/*_Factory*.*',
+            '**/*_Provide*.*'
     ]
 
     // Create test coverage task for each of productFlavorName

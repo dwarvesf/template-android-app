@@ -8,6 +8,7 @@ import com.dwarves.template.domain.product.RemoveProductUseCase
 import com.dwarves.template.support.Navigator
 import com.dwarves.template.support.NavigatorImpl
 import com.dwarves.template.support.ResourceProvider
+import com.dwarves.template.support.ResourceProviderImpl
 import com.dwarves.template.ui.products.list.ProductItemViewModelMapper
 import com.dwarves.template.ui.products.list.ProductListAdapter
 import com.google.gson.Gson
@@ -40,13 +41,13 @@ class ProductListModule {
     @ActivityScope
     @Provides
     fun provideResourceProvider(context: Context): ResourceProvider {
-        return ResourceProvider(context)
+        return ResourceProviderImpl(context)
     }
 
     @ActivityScope
     @Provides
-    fun provideGetProductsUseCase(productRepo: ProductRepo): GetProductsUseCase {
-        return GetProductsUseCase(productRepo)
+    fun provideGetProductsUseCase(productRepo: ProductRepo, gson: Gson): GetProductsUseCase {
+        return GetProductsUseCase(productRepo, gson)
     }
 
     @ActivityScope

@@ -126,7 +126,6 @@ class ProductListViewModel(
         }
 
         return task.observeOnMain()
-                .observeOnMain()
                 .subscribe({
                     when (it) {
                         is Either.Error<GetProductsError, List<Product>> ->
@@ -142,7 +141,7 @@ class ProductListViewModel(
                 .compose(loadingManagerManager.bind())
     }
 
-    fun createSavedStated() = SavedState(products.value.map { it.copy(loading = false) })
+    fun createSavedState() = SavedState(products.value.map { it.copy(loading = false) })
 
     fun unbind() = disposables.dispose()
 }
