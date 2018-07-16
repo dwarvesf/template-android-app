@@ -1,5 +1,6 @@
 package com.dwarvesv.mvvm.login
 
+import com.dwarvesv.mvvm.data.request.LoginRequest
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.service.UserApi
 import com.dwarvesv.mvvm.service.UserService
@@ -8,7 +9,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
-import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 
@@ -40,11 +40,19 @@ class LoginViewModelTest {
         val login = CORRECT_LOGIN
         val password = CORRECT_PASSWORD
 
+
         //when
+        val result = userRepository.login(LoginRequest(login, password))
+
+        //then
+        result.test().await().assertNoErrors()
+        result.test().await().assertSubscribed()
+
+        /*//when
         loginViewModel.doLogin(login, password)
         //then
         verify(loginViewModel.outputs.loginSuccess.test().await()).assertSubscribed()
-        verify(loginViewModel.outputs.loginSuccess.test().await()).assertNoErrors()
+        verify(loginViewModel.outputs.loginSuccess.test().await()).assertNoErrors()*/
     }
 
 

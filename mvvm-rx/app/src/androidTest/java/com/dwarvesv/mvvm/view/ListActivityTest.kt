@@ -11,19 +11,13 @@ import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.view.list.ListActivity
-import com.dwarvesv.mvvm.view.list.ListFragment
 import com.dwarvesv.mvvm.view.list.adapter.MvpViewHolder
 import org.hamcrest.Matchers.allOf
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.*
 
-
-/**
- * Created by amitshekhar on 11/07/17.
- */
 
 @RunWith(AndroidJUnit4::class)
 class ListActivityTest {
@@ -33,12 +27,7 @@ class ListActivityTest {
     @JvmField
     var mActivityRule = ActivityTestRule(ListActivity::class.java)
 
-    private var listFragment: ListFragment = ListFragment.newInstance()
 
-    @Before
-    fun init() {
-        mActivityRule.activity.setFragment(listFragment)
-    }
 
     @Test
     fun recyclerViewTest() {

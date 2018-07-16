@@ -10,9 +10,7 @@ import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.view.login.LoginActivity
-import com.dwarvesv.mvvm.view.login.LoginFragment
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,12 +22,6 @@ class LoginActivityTest {
     @Rule
     @JvmField
     var mActivityRule: ActivityTestRule<LoginActivity> = ActivityTestRule(LoginActivity::class.java)
-
-    private var loginFragment: LoginFragment = LoginFragment()
-    @Before
-    fun init() {
-        mActivityRule.activity.setFragment(loginFragment)
-    }
 
     private val email = "thanh90@gmail.com"
     private val correct_password = "Qwert5"
