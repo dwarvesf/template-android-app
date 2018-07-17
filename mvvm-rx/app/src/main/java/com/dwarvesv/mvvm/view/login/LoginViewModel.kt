@@ -78,16 +78,16 @@ class LoginViewModel(private val userRepository: UserRepository) : LoginViewMode
         userRepository.login(LoginRequest(email = email, password = password)).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
-                        {
-                            if (it.body() != null) {
-                                it.body()?.let { it1 ->
-                                    loginSuccessPublishSubject.onNext(it1)
+                        { response ->
+                            if (response.body() != null) {
+                                response.body()?.let { loginResults ->
+                                    loginSuccessPublishSubject.onNext(loginResults)
                                 }
                             } else {
-                                loginFailurePublishSubject.onNext(it.message())
+                                loginFailurePublishSubject.onNext(response.message())
                             }
-                        }, {
-                    it.message?.let { it1 -> loginFailurePublishSubject.onNext(it1) }
+                        }, { throwAble ->
+                    throwAble.message?.let { it1 -> loginFailurePublishSubject.onNext(it1) }
                 })
     }
 }

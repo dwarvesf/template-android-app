@@ -1,20 +1,28 @@
-package com.dwarvesv.mvvm.login
+package com.dwarvesv.mvvm
 
+import android.support.test.InstrumentationRegistry
+import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
 import com.dwarvesv.mvvm.data.request.LoginRequest
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.service.UserService
+import org.junit.Before
 import org.junit.Test
 
 class LoginRepositoryTest {
 
-    val objectUnderTest = UserRepository.getInstance(UserService.getInstance().api)
-
+    lateinit var objectUnderTest: UserRepository
 
     val CORRECT_LOGIN = "thanh90@gmail.com"
     val CORRECT_PASSWORD = "Qwe123"
+    @Before
+    fun setUp() {
+        objectUnderTest = UserRepository.getInstance(UserService.getInstance().api,
+                UserLocalDataSource.getInstance(InstrumentationRegistry.getTargetContext())!!)
+
+    }
 
     @Test
-    fun `login with correct login and password`() {
+    fun loginSuccess() {
         //given
         val login = CORRECT_LOGIN
         val password = CORRECT_PASSWORD
@@ -26,7 +34,7 @@ class LoginRepositoryTest {
     }
 
     @Test
-    fun `do not login with only correct login`() {
+    fun loginWithWrongPass() {
         //given
         val login = CORRECT_LOGIN
         val password = "anyPassword"
@@ -38,7 +46,7 @@ class LoginRepositoryTest {
     }
 
     @Test
-    fun `do not login with only correct password`() {
+    fun loginWithOnlyCorrectPass() {
         //given
         val login = "anyLogin"
         val password = CORRECT_PASSWORD

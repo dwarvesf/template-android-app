@@ -2,7 +2,6 @@ package com.dwarvesv.mvvm.view.list
 
 import android.content.Context
 import com.dwarvesv.mvvm.data.model.User
-import com.dwarvesv.mvvm.data.request.GetUsersRequest
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.isNetworkConnected
 import io.reactivex.Observable
@@ -57,22 +56,19 @@ class ListViewModel(var context: Context?, private val userRepository: UserRepos
             return
         }
 
-        userRepository.getListData(GetUsersRequest("")).observeOn(AndroidSchedulers.mainThread())
+        userRepository.getListData().observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
-                        {
-                            if (it.body() != null) {
+                        { userList ->
+                            if (userList != null) {
 
-                                callHideIndicator(offset)
-
-                                it.body()?.let { it1 ->
-                                    getListDataPublishSubject.onNext(it1)
+                                userList.let { getListResults ->
+                                    getListDataPublishSubject.onNext(getListResults)
                                 }
 
-                            } else {
-                                callHideIndicator(offset)
-                                User.getListUserDummy()?.let { it1 -> getListDataPublishSubject.onNext(it1) }
                             }
+
+                            callHideIndicator(offset)
                         }
                         ,
                         {

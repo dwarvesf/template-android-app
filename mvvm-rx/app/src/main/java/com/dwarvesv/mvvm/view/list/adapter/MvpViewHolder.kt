@@ -10,12 +10,14 @@ import kotlinx.android.synthetic.main.item_list.*
 class MvpViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView!!),
         LayoutContainer {
 
-    fun bind(dataMvp: User, clickSubject: PublishSubject<User>) {
+    fun bind(user: User, clickSubject: PublishSubject<User>) {
 
         itemView.setOnClickListener {
-            clickSubject.onNext(dataMvp)
+            clickSubject.onNext(user)
         }
-        tvUserName.text = dataMvp.name
+        tvUserName.text = user.fullName
+        tvContent.text = user.description
+        tvName.text = user.name
     }
 
 }

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.base.BaseFragment
 import com.dwarvesv.mvvm.data.model.User
-import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.Keys
 import kotlinx.android.synthetic.main.fragment_detail.*
 
@@ -41,7 +40,7 @@ class DetailFragment : BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = DetailViewModel(UserRepository.getInstance(userApi))
+        viewModel = DetailViewModel()
         val args = arguments
         if (args != null) {
             val user: com.dwarvesv.mvvm.data.model.User = args.getParcelable(Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP) as com.dwarvesv.mvvm.data.model.User

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.base.BaseFragment
+import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
 import com.dwarvesv.mvvm.data.model.User
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.Constant.LIMIT
@@ -53,7 +54,7 @@ class ListFragment : BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = ListViewModel(context, UserRepository.getInstance(userApi))
+        viewModel = ListViewModel(context, UserRepository.getInstance(userApi, UserLocalDataSource.getInstance(context!!)!!))
 
 
         viewModel.getListData(LIMIT, curOffset, false)
@@ -71,6 +72,7 @@ class ListFragment : BaseFragment() {
         }
 
         setUpRecyclerView()
+        recyclerView.showShimmerAdapter()
     }
 
     private fun setUpRecyclerView() {
@@ -119,6 +121,7 @@ class ListFragment : BaseFragment() {
         mvpAdapter.submitList(mListData)
 
         layoutEmpty.visibility = getVisibilityView(listData.isEmpty())
+        recyclerView.hideShimmerAdapter()
 
     }
 

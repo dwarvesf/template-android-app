@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 def ext = rootProject.ext
 
 android {
@@ -51,8 +51,6 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:2.19.0'
     androidTestImplementation 'org.mockito:mockito-android:2.8.47'
 
-
-
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support:support-annotations:27.1.1'
@@ -94,6 +92,13 @@ dependencies {
 
     //map
     implementation "com.google.android.gms:play-services-maps:$mapsVersion"
+
+    //local database
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+
+    //custom recycler view with shimmer views
+    implementation "com.github.sharish:ShimmerRecyclerView:$shimmerVersion"
 }
 repositories {
     mavenCentral()

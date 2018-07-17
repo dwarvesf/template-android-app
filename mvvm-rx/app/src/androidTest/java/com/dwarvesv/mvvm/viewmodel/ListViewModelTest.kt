@@ -2,6 +2,7 @@ package com.dwarvesv.mvvm.viewmodel
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
+import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.service.UserService
 import com.dwarvesv.mvvm.utils.Constant
@@ -18,7 +19,8 @@ class ListViewModelTest {
     private lateinit var listViewModel: ListViewModel
     @Before
     fun setUp() {
-        listViewModel = ListViewModel(InstrumentationRegistry.getTargetContext(), UserRepository.getInstance(UserService.getInstance().api))
+        listViewModel = ListViewModel(InstrumentationRegistry.getTargetContext(),
+                UserRepository.getInstance(UserService.getInstance().api, UserLocalDataSource.getInstance(InstrumentationRegistry.getTargetContext())!!))
     }
 
     @Test

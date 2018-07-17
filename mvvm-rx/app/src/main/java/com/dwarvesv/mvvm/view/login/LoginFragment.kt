@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.base.BaseFragment
+import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
 import com.dwarvesv.mvvm.utils.disposebag.disposedBy
@@ -44,7 +45,7 @@ class LoginFragment : BaseFragment() {
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
 
-        viewModel = LoginViewModel(UserRepository.getInstance(userApi))
+        viewModel = LoginViewModel(UserRepository.getInstance(userApi, UserLocalDataSource.getInstance(context!!)!!))
 
         RxView.clicks(btnLogin)
                 .subscribe { _ ->

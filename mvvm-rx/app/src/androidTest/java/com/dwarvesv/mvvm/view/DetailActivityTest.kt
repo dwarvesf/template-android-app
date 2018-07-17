@@ -27,7 +27,7 @@ class DetailActivityTest {
             val targetContext = InstrumentationRegistry.getInstrumentation()
                     .targetContext
             val result = Intent(targetContext, DetailActivity::class.java)
-            result.putExtra(BUNDLE_PARCELABLE_KEY_DATAMVP, User(id = "testId", name = "Test Data"))
+            result.putExtra(BUNDLE_PARCELABLE_KEY_DATAMVP, User(id = 1, fullName = "Full Name", name = "name", description = "description"))
             return result
         }
     }

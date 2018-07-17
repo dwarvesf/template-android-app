@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
 import com.dwarvesv.mvvm.base.BaseFragment
+import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -45,7 +46,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = MapViewModel(UserRepository.getInstance(userApi))
+        viewModel = MapViewModel(UserRepository.getInstance(userApi, UserLocalDataSource.getInstance(context!!)!!))
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
     }

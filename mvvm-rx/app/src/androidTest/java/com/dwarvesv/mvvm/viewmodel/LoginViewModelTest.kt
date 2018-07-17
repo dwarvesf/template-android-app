@@ -1,6 +1,8 @@
 package com.dwarvesv.mvvm.viewmodel
 
+import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
+import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
 import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.service.UserService
 import com.dwarvesv.mvvm.view.login.LoginViewModel
@@ -17,7 +19,9 @@ class LoginViewModelTest {
     private lateinit var loginViewModel: LoginViewModel
     @Before
     fun setUp() {
-        loginViewModel = LoginViewModel(UserRepository.getInstance(UserService.getInstance().api))
+        loginViewModel = LoginViewModel(UserRepository.getInstance(UserService.getInstance().api
+                , UserLocalDataSource.getInstance(InstrumentationRegistry.getTargetContext())!!))
+
     }
 
     @Test

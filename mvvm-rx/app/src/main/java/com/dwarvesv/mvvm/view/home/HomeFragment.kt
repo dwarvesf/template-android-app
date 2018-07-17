@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.repository.UserRepository
 import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
 import com.dwarvesv.mvvm.utils.disposebag.disposedBy
 import com.jakewharton.rxbinding2.view.RxView
@@ -42,7 +41,7 @@ class HomeFragment : com.dwarvesv.mvvm.base.BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
-        viewModel = HomeViewModel(UserRepository.getInstance(userApi))
+        viewModel = HomeViewModel()
         RxView.clicks(btnMap)
                 .subscribe {
                     listener?.navigateToMap()
