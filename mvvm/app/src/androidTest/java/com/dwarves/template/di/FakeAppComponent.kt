@@ -3,14 +3,13 @@ package com.dwarves.template.di
 import android.app.Application
 import com.dwarves.template.DwarvesApp
 import com.dwarves.template.di.module.AppModule
-import com.dwarves.template.di.module.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 
 @ApplicationScope
-@Component(modules = [AppModule::class, NetworkModule::class])
-interface AppComponent : AndroidInjector<DwarvesApp> {
+@Component(modules = [AppModule::class, FakeNetworkModule::class])
+interface FakeAppComponent : AndroidInjector<DwarvesApp> {
 
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<DwarvesApp>() {
@@ -19,6 +18,6 @@ interface AppComponent : AndroidInjector<DwarvesApp> {
         abstract fun application(application: Application): Builder
 
         @Override
-        abstract override fun build(): AppComponent
+        abstract override fun build(): FakeAppComponent
     }
 }

@@ -8,15 +8,13 @@ import com.dwarves.template.data.storage.ProductStorage
 import com.dwarves.template.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
 
 @Module
 class RepoModule {
 
     @ApplicationScope
     @Provides
-    fun provideProductRepo(retrofit: Retrofit, storage: ProductStorage): ProductRepo {
-        // In real world, will use Retrofit to create api
-        return ProductRepoImpl(ProductApi(), storage, ProductMapper())
+    fun provideProductRepo(api: ProductApi, storage: ProductStorage): ProductRepo {
+        return ProductRepoImpl(api, storage, ProductMapper())
     }
 }

@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
 import android.view.inputmethod.InputMethodManager
+import com.dwarves.template.data.module.RepoModule
+import com.dwarves.template.data.module.StorageModule
 import com.dwarves.template.di.ApplicationScope
 import com.google.gson.Gson
 import dagger.Module
@@ -11,9 +13,9 @@ import dagger.Provides
 import dagger.android.support.AndroidSupportInjectionModule
 
 @Module(includes = [
-    NetworkModule::class,
     BindingModule::class,
-    AndroidSupportInjectionModule::class
+    AndroidSupportInjectionModule::class,
+    RepoModule::class, StorageModule::class
 ])
 class AppModule {
 

@@ -14,9 +14,12 @@ android {
         versionCode buildVersionCode()
         versionName version
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.dwarves.template.EspressoRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -80,6 +83,8 @@ dependencies {
 }
 
 dependencies {
+    kaptAndroidTest libs.daggerCompiler
+    kaptAndroidTest libs.daggerAndroidProcessor
     androidTestImplementation tests.espressoRule
     androidTestImplementation tests.espressoRunner
     androidTestImplementation tests.espresso

@@ -5,7 +5,7 @@ import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
 
-class DwarvesApp : DaggerApplication() {
+open class DwarvesApp : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()

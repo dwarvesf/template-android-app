@@ -1,6 +1,8 @@
 package com.dwarves.template.di.module
 
 import com.dwarves.template.BuildConfig
+import com.dwarves.template.data.api.ProductApi
+import com.dwarves.template.data.api.ProductApiImpl
 import com.dwarves.template.data.storage.AuthStorage
 import com.dwarves.template.di.ApplicationScope
 import com.dwarves.template.util.AUTHORIZATION
@@ -48,6 +50,13 @@ class NetworkModule {
 
             return@Interceptor it.proceed(request)
         }
+    }
+
+    @Provides
+    @ApplicationScope
+    fun provideProductApi(): ProductApi {
+        // In real world, will use Retrofit to create api
+        return ProductApiImpl()
     }
 
     @Provides

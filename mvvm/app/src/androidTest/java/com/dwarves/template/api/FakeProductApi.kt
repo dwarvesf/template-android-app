@@ -1,5 +1,6 @@
-package com.dwarves.template.data.api
+package com.dwarves.template.api
 
+import com.dwarves.template.data.api.ProductApi
 import com.dwarves.template.data.model.ProductEntity
 import io.reactivex.Single
 import okhttp3.MediaType
@@ -8,20 +9,15 @@ import okhttp3.Request
 import okhttp3.Response
 import okhttp3.ResponseBody
 import retrofit2.HttpException
-import java.util.concurrent.TimeUnit
 
-interface ProductApi {
-    fun getProducts(): Single<List<ProductEntity>>
-    fun removeProduct(id: Long): Single<Long>
-}
-
-class ProductApiImpl : ProductApi {
+// Use to mock api
+class FakeProductApi : ProductApi {
     override fun getProducts(): Single<List<ProductEntity>> {
         val products = (1..100).map {
             ProductEntity(it.toLong(), "Title $it", "Description $it")
         }
 
-        return Single.just(products).delay(2, TimeUnit.SECONDS)
+        return Single.just(products)
     }
 
     override fun removeProduct(id: Long): Single<Long> {
@@ -37,6 +33,6 @@ class ProductApiImpl : ProductApi {
                     .build())))
         }
 
-        return Single.just(id).delay(1, TimeUnit.SECONDS)
+        return Single.just(id)
     }
 }
