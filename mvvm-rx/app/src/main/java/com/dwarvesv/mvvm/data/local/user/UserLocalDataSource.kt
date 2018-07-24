@@ -1,18 +1,13 @@
 package com.dwarvesv.mvvm.data.local.user
 
 import android.content.Context
-import com.dwarvesv.mvp.data.source.local.user.UserDao
 import com.dwarvesv.mvvm.data.local.LocalDatabase
 import com.dwarvesv.mvvm.data.model.User
 import io.reactivex.Single
 
 class UserLocalDataSource(context: Context) : UserDataSource {
 
-    private var mUserDao: UserDao
-
-    init {
-        mUserDao = LocalDatabase.getInstance(context)?.userDao()!!
-    }
+    private var mUserDao: UserDao = LocalDatabase.getInstance(context)?.userDao()!!
 
     companion object {
 
@@ -45,6 +40,10 @@ class UserLocalDataSource(context: Context) : UserDataSource {
 
     override fun getAllUsers(): Single<List<User>> {
         return Single.fromCallable { mUserDao.getAllUsers() }
+    }
+
+    override fun updateData(userList: List<User>) {
+        mUserDao.updateData(userList)
     }
 
 }

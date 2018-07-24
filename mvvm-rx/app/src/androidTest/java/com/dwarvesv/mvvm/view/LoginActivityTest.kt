@@ -9,7 +9,7 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.view.login.LoginActivity
+import com.dwarvesv.mvvm.view.splash.SplashActivity
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -21,7 +21,7 @@ class LoginActivityTest {
 
     @Rule
     @JvmField
-    var mActivityRule: ActivityTestRule<LoginActivity> = ActivityTestRule(LoginActivity::class.java)
+    var mActivityRule: ActivityTestRule<SplashActivity> = ActivityTestRule(SplashActivity::class.java)
 
     private val email = "thanh90@gmail.com"
     private val correct_password = "Qwert5"

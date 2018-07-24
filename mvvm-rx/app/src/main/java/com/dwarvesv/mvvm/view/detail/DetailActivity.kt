@@ -10,11 +10,8 @@ class DetailActivity : BaseNoAppBarActivity(), DetailFragment.InteractionListene
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-
             setFragment(DetailFragment.newInstance(), intent.extras)
         }
-        setToolbarTitle(getString(R.string.activity_title_detail))
-        setDisplayHomeAsUpEnabled(true)
     }
 
     private fun setFragment(detailFragment: DetailFragment, extras: Bundle) {

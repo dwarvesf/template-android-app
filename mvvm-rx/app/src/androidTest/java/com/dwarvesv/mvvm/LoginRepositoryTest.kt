@@ -10,10 +10,10 @@ import org.junit.Test
 
 class LoginRepositoryTest {
 
-    lateinit var objectUnderTest: UserRepository
+    private lateinit var objectUnderTest: UserRepository
 
-    val CORRECT_LOGIN = "thanh90@gmail.com"
-    val CORRECT_PASSWORD = "Qwe123"
+    private val CORRECT_LOGIN = "thanh90@gmail.com"
+    private val CORRECT_PASSWORD = "Qwe123"
     @Before
     fun setUp() {
         objectUnderTest = UserRepository.getInstance(UserService.getInstance().api,

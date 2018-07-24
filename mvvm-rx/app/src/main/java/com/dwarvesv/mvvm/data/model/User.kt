@@ -11,13 +11,12 @@ data class User(
         @PrimaryKey(autoGenerate = false)
         @SerializedName("id") var id: Int,
         @SerializedName("name") var name: String,
-        @SerializedName("full_name") var fullName: String,
-        @SerializedName("description") var description: String
+        @SerializedName("full_name") var fullName: String
+
 
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
-            parcel.readString(),
             parcel.readString(),
             parcel.readString())
 
@@ -25,7 +24,7 @@ data class User(
         parcel.writeInt(id)
         parcel.writeString(name)
         parcel.writeString(fullName)
-        parcel.writeString(description)
+
     }
 
     override fun describeContents(): Int {

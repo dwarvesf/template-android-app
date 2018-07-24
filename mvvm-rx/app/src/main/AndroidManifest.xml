@@ -28,7 +28,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".view.login.LoginActivity"
+            android:name=".view.splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -37,6 +37,11 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".view.list.ListActivity"
@@ -49,14 +54,14 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".view.home.HomeActivity"
+            android:name=".view.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <activity
             android:name=".view.detail.DetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 

@@ -60,12 +60,8 @@ class ListViewModel(var context: Context?, private val userRepository: UserRepos
                 .subscribeOn(Schedulers.io())
                 .subscribe(
                         { userList ->
-                            if (userList != null) {
-
-                                userList.let { getListResults ->
-                                    getListDataPublishSubject.onNext(getListResults)
-                                }
-
+                            userList?.let { getListResults ->
+                                getListDataPublishSubject.onNext(getListResults)
                             }
 
                             callHideIndicator(offset)

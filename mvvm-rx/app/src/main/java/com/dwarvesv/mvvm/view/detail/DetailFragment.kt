@@ -2,6 +2,8 @@ package com.dwarvesv.mvvm.view.detail
 
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,16 +42,25 @@ class DetailFragment : BaseFragment() {
     }
 
     override fun setUpView(view: View, savedInstanceState: Bundle?) {
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+        }
         viewModel = DetailViewModel()
         val args = arguments
         if (args != null) {
-            val user: com.dwarvesv.mvvm.data.model.User = args.getParcelable(Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP) as com.dwarvesv.mvvm.data.model.User
+            val user: User = args.getParcelable(Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP) as User
             setData(user)
         }
     }
 
     private fun setData(user: User) {
-        tvUserName.text = user.name
+        (activity as AppCompatActivity).setTitle(user.name)
     }
 
     interface InteractionListener

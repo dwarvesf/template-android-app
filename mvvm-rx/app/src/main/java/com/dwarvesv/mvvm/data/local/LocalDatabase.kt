@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-import com.dwarvesv.mvp.data.source.local.user.UserDao
+import com.dwarvesv.mvvm.data.local.user.UserDao
 import com.dwarvesv.mvvm.data.model.User
 
 

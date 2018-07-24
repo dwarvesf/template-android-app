@@ -1,71 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:padding="9dp">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-    <ImageView
-        android:id="@+id/ivProfileImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorAccent" />
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <RelativeLayout
-        android:id="@+id/tlIdentification"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@id/ivProfileImage"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/ivProfileImage">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
 
-        <TextView
-            android:id="@+id/tvUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1"
-            android:maxLength="21"
-            android:textColor="@android:color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <ImageView
-            android:id="@+id/ivVerifiedBadge"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginStart="4dp"
-            android:layout_toEndOf="@+id/tvUserName"
-            android:paddingTop="2dp" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_toEndOf="@+id/ivVerifiedBadge"
-            android:ellipsize="end"
-            android:lines="1"
-            android:textSize="15sp" />
+    <include layout="@layout/content_scrolling" />
 
-    </RelativeLayout>
-
-    <TextView
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tlIdentification"
-        android:layout_below="@+id/tlIdentification"
-        android:layout_marginBottom="2dp"
-        android:layout_marginTop="2dp"
-        android:lineSpacingExtra="2dp"
-        android:paddingEnd="30dp"
-        android:textColor="@android:color/black"
-        android:textSize="15sp" />
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

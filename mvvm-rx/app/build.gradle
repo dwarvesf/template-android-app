@@ -99,6 +99,8 @@ dependencies {
 
     //custom recycler view with shimmer views
     implementation "com.github.sharish:ShimmerRecyclerView:$shimmerVersion"
+
+    implementation 'com.airbnb.android:lottie:2.5.1'
 }
 repositories {
     mavenCentral()

@@ -16,7 +16,6 @@ class MvpViewHolder(override val containerView: View?) : RecyclerView.ViewHolder
             clickSubject.onNext(user)
         }
         tvUserName.text = user.fullName
-        tvContent.text = user.description
         tvName.text = user.name
     }
 

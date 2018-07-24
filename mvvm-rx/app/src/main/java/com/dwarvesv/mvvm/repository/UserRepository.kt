@@ -41,17 +41,17 @@ class UserRepository(private val userApi: UserApi, private val userLocalDataSour
         )
     }
 
-    fun getUsersFromDb(): Observable<ArrayList<User>> {
+    private fun getUsersFromDb(): Observable<ArrayList<User>> {
         return userLocalDataSource.getAllUsers().map { userList ->
             ArrayList(userList)
         }.toObservable()
     }
 
-    fun getUsersFromApi(): Observable<ArrayList<User>> {
+    private fun getUsersFromApi(): Observable<ArrayList<User>> {
         return userApi.getListData("dwarvesf")
                 .doOnSuccess { userList ->
                     //after get user from api, we will store it to local database
-                    userLocalDataSource.insertAll(userList)
+                    userLocalDataSource.updateData(userList)
                 }.toObservable()
     }
 

@@ -19,7 +19,7 @@ class MapActivity : BaseNoAppBarActivity(), MapFragment.InteractionListener {
         setDisplayHomeAsUpEnabled(true)
     }
 
-    fun setFragment(mapFragment: MapFragment) {
+    private fun setFragment(mapFragment: MapFragment) {
         replaceFragment(R.id.fragmentContainer, mapFragment)
     }
 

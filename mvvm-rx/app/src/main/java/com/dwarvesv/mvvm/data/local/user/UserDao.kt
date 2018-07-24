@@ -1,9 +1,6 @@
-package com.dwarvesv.mvp.data.source.local.user
+package com.dwarvesv.mvvm.data.local.user
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.dwarvesv.mvvm.data.model.User
 
 /**
@@ -34,5 +31,12 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(userEntities: List<User>): Array<Long>
 
+    @Query("DELETE FROM Users")
+    fun deleteAllUsers()
 
+    @Transaction
+    fun updateData(users: List<User>) {
+        deleteAllUsers()
+        insertAll(users)
+    }
 }

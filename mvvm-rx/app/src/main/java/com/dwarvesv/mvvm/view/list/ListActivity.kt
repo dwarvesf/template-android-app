@@ -20,7 +20,7 @@ class ListActivity : BaseNoAppBarActivity(), ListFragment.InteractionListener {
         setDisplayHomeAsUpEnabled(true)
     }
 
-    fun setFragment(listFragment: ListFragment) {
+    private fun setFragment(listFragment: ListFragment) {
         replaceFragment(R.id.fragmentContainer, listFragment)
     }
 

@@ -6,7 +6,7 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.view.home.HomeActivity
+import com.dwarvesv.mvvm.view.main.MainActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,7 +17,7 @@ class HomeActivityTest {
 
     @Rule
     @JvmField
-    var mActivityRule = ActivityTestRule(HomeActivity::class.java)
+    var mActivityRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun checkViewsDisplay() {

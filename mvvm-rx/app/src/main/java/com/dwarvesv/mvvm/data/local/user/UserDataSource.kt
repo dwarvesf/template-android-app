@@ -16,4 +16,6 @@ interface UserDataSource {
     fun getUserById(userId: String): Single<User>
 
     fun getAllUsers(): Single<List<User>>
+
+    fun updateData(userList: List<User>)
 }
