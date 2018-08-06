@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+def ext = rootProject.ext
+
+android {
+    compileSdkVersion ext.androidCompileSdkVersion
+
+    defaultConfig {
+        applicationId "com.dwarvesv.mvvm"
+        applicationId ext.androidApplicationId
+        minSdkVersion ext.androidMinSdkVersion
+        targetSdkVersion ext.androidTargetSdkVersion
+        versionCode ext.androidVersionCode
+        versionName ext.androidVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
+
+    //test lib
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    testImplementation 'junit:junit:4.12'
+
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+    testImplementation 'org.assertj:assertj-core:3.8.0'
+    testImplementation 'org.mockito:mockito-inline:2.19.0'
+    androidTestImplementation 'org.mockito:mockito-android:2.8.47'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support:support-annotations:27.1.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:3.0.2"
+    implementation "com.android.support.test.espresso:espresso-idling-resource:3.0.2"
+
+
+    //androidTestImplementation 'com.android.support:recyclerview-v7:' + rootProject.supportLibVersion;
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    //lifecycle
+    implementation "android.arch.lifecycle:extensions:$extensionsVersion"
+    implementation "android.arch.lifecycle:common-java8:$extensionsVersion"
+
+    //reactive programming
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rxbindingVersion"
+
+    //call restful
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$interceptorVersion"
+
+    //load image
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    //time library
+    implementation "joda-time:joda-time:$jodaTimeVersion"
+
+    //common for use intent, dialog, toast,v.v.... simply
+    implementation "org.jetbrains.anko:anko-appcompat-v7-commons:$ankoVersion"
+
+    //map
+    implementation "com.google.android.gms:play-services-maps:$mapsVersion"
+
+    //local database
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+
+    //custom recycler view with shimmer views
+    implementation "com.github.sharish:ShimmerRecyclerView:$shimmerVersion"
+
+    implementation 'com.airbnb.android:lottie:2.5.1'
+}
+repositories {
+    mavenCentral()
+}

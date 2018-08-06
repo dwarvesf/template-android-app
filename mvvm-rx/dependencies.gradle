@@ -1,0 +1,36 @@
+
+ext {
+    versionMajor = 0 // release number
+    versionMinor = 28 // #features
+    versionPatch = 0 // #bugs
+    versionBuild = 1
+
+    androidApplicationId = 'com.dwarvesv.mvvm'
+    androidVersionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
+    androidVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
+    androidCompileSdkVersion = 28 // 8.0
+    androidTargetSdkVersion = 28 // 8.0
+    androidMinSdkVersion = 17 // 5.0
+    kotlinVersion = "1.2.51"
+
+
+    supportLibVersion = "28.0.0-alpha3"
+    retrofitVersion = '2.4.0'
+    rxkotlinVersion= '2.2.0'
+    rxjavaVersion= '2.1.12'
+    rxandroidVersion= '2.0.2'
+    rxbindingVersion= '2.1.1'
+
+    extensionsVersion= '1.1.1'
+    interceptorVersion= '3.10.0'
+
+    glideVersion= '4.7.1'
+    jodaTimeVersion= '2.10'
+
+    ankoVersion= '0.10.5'
+    mapsVersion= '15.0.1'
+
+    roomVersion = '1.1.1'
+    shimmerVersion = 'v1.3'
+
+}
