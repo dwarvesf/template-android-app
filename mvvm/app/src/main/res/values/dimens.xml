@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="space_medium">12dp</dimen>
+    <dimen name="space_normal">16dp</dimen>
+    <dimen name="space_xlarge">32dp</dimen>
+    <dimen name="space_large">24dp</dimen>
+
+    <dimen name="size_normal">16sp</dimen>
+    <dimen name="size_medium">20sp</dimen>
+    <dimen name="size_large">24sp</dimen>
+</resources>
