@@ -1,12 +1,12 @@
-package com.dwarvesv.mvvm.viewmodel
+package {{packageName}}.viewmodel
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
-import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.service.UserService
-import com.dwarvesv.mvvm.utils.Constant
-import com.dwarvesv.mvvm.view.list.ListViewModel
+import {{packageName}}.data.local.user.UserLocalDataSource
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.service.UserService
+import {{packageName}}.utils.Constant
+import {{packageName}}.view.list.ListViewModel
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

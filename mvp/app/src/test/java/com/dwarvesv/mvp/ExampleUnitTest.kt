@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp
+package {{packageName}}
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

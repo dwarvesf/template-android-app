@@ -1,8 +1,8 @@
-package com.dwarvesv.mvp.view.detail
+package {{packageName}}.view.detail
 
 import android.os.Bundle
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseNoAppBarActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
 
 class DetailActivity : BaseNoAppBarActivity(), DetailFragment.InteractionListener {
 

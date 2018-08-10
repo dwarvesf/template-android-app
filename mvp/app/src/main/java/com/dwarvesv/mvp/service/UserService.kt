@@ -1,11 +1,11 @@
-package com.dwarvesv.mvp.service
+package {{packageName}}.service
 
 
-import com.dwarvesv.mvp.data.model.User
-import com.dwarvesv.mvp.data.request.LoginRequest
-import com.dwarvesv.mvp.data.response.LoginResponse
-import com.dwarvesv.mvp.service.ApiService.Factory.retrofitBuilder
-import com.dwarvesv.mvp.utils.SingletonHolder
+import {{packageName}}.data.model.User
+import {{packageName}}.data.request.LoginRequest
+import {{packageName}}.data.response.LoginResponse
+import {{packageName}}.service.ApiService.Factory.retrofitBuilder
+import {{packageName}}.utils.SingletonHolder
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.Retrofit

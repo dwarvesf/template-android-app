@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.utils
+package {{packageName}}.utils
 
 open class SingletonHolder<out T>(creator: () -> T) {
     private var creator: (() -> T)? = creator

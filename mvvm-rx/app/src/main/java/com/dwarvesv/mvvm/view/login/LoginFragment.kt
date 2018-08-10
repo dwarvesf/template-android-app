@@ -1,18 +1,18 @@
-package com.dwarvesv.mvvm.view.login
+package {{packageName}}.view.login
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseFragment
-import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
-import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
-import com.dwarvesv.mvvm.utils.disposebag.disposedBy
-import com.dwarvesv.mvvm.utils.getErrorHintEmail
-import com.dwarvesv.mvvm.utils.getErrorHintPassword
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.data.local.user.UserLocalDataSource
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.utils.disposebag.DisposeBag
+import {{packageName}}.utils.disposebag.disposedBy
+import {{packageName}}.utils.getErrorHintEmail
+import {{packageName}}.utils.getErrorHintPassword
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import kotlinx.android.synthetic.main.fragment_login.*

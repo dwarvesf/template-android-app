@@ -1,7 +1,7 @@
-package com.dwarvesv.mvvm.view.home
+package {{packageName}}.view.home
 
-import com.dwarvesv.mvvm.view.main.HomeViewModelInputs
-import com.dwarvesv.mvvm.view.main.HomeViewModelOutputs
+import {{packageName}}.view.main.HomeViewModelInputs
+import {{packageName}}.view.main.HomeViewModelOutputs
 
 interface HomeViewModelInputs
 

@@ -1,10 +1,10 @@
-package com.dwarvesv.mvvm.view.login
+package {{packageName}}.view.login
 
 import android.os.Bundle
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseNoAppBarActivity
-import com.dwarvesv.mvvm.view.main.MainActivity
-import com.dwarvesv.mvvm.view.splash.SplashFragment
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
+import {{packageName}}.view.main.MainActivity
+import {{packageName}}.view.splash.SplashFragment
 import org.jetbrains.anko.intentFor
 
 class LoginActivity : BaseNoAppBarActivity(), LoginFragment.InteractionListener {

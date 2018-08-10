@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.data.request
+package {{packageName}}.data.request
 
 import android.os.Parcel
 import android.os.Parcelable

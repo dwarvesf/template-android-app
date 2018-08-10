@@ -1,9 +1,9 @@
-package com.dwarvesv.mvp.view.login
+package {{packageName}}.view.login
 
 import android.os.Bundle
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseNoAppBarActivity
-import com.dwarvesv.mvp.view.main.MainActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
+import {{packageName}}.view.main.MainActivity
 
 import org.jetbrains.anko.intentFor
 

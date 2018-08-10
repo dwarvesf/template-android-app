@@ -1,7 +1,7 @@
-package com.dwarvesv.mvp.data.source.local.user
+package {{packageName}}.data.source.local.user
 
 
-import com.dwarvesv.mvp.data.model.User
+import {{packageName}}.data.model.User
 import io.reactivex.Single
 
 /**

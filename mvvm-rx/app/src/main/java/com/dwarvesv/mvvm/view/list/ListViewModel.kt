@@ -1,9 +1,9 @@
-package com.dwarvesv.mvvm.view.list
+package {{packageName}}.view.list
 
 import android.content.Context
-import com.dwarvesv.mvvm.data.model.User
-import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.utils.isNetworkConnected
+import {{packageName}}.data.model.User
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.utils.isNetworkConnected
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

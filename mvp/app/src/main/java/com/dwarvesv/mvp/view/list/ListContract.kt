@@ -1,9 +1,9 @@
-package com.dwarvesv.mvp.view.list
+package {{packageName}}.view.list
 
-import com.dwarvesv.mvp.base.BasePresenter
-import com.dwarvesv.mvp.base.BaseView
-import com.dwarvesv.mvp.base.list.BaseListView
-import com.dwarvesv.mvp.data.model.User
+import {{packageName}}.base.BasePresenter
+import {{packageName}}.base.BaseView
+import {{packageName}}.base.list.BaseListView
+import {{packageName}}.data.model.User
 
 
 interface ListContract {

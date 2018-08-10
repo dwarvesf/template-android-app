@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.dwarvesv.mvvm">
+    package="{{packageName}}">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -26,6 +26,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
+        {{#fabricEnabled}}
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="{{fabricKey}}"
+        />
+        {{/fabricEnabled}}
 
         <activity
             android:name=".view.splash.SplashActivity"

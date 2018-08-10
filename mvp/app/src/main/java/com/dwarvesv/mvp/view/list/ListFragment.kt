@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.view.list
+package {{packageName}}.view.list
 
 import android.content.Context
 import android.os.Bundle
@@ -7,14 +7,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseFragment
-import com.dwarvesv.mvp.data.model.User
-import com.dwarvesv.mvp.data.source.local.user.UserLocalDataSource
-import com.dwarvesv.mvp.repository.UserRepository
-import com.dwarvesv.mvp.utils.Constant.LIMIT
-import com.dwarvesv.mvp.utils.EndlessRecyclerOnScrollListener
-import com.dwarvesv.mvp.view.list.adapter.MvpAdapter
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.data.model.User
+import {{packageName}}.data.source.local.user.UserLocalDataSource
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.utils.Constant.LIMIT
+import {{packageName}}.utils.EndlessRecyclerOnScrollListener
+import {{packageName}}.view.list.adapter.MvpAdapter
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_base_list.*
 import kotlinx.android.synthetic.main.layout_load_more.*

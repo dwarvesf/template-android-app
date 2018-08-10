@@ -1,6 +1,6 @@
-package com.dwarvesv.mvvm.data.response
+package {{packageName}}.data.response
 
-import com.dwarvesv.mvvm.data.model.User
+import {{packageName}}.data.model.User
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(

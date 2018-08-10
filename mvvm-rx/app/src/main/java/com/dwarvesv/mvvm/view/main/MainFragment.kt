@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view.main
+package {{packageName}}.view.main
 
 import android.content.Context
 import android.os.Bundle
@@ -6,11 +6,11 @@ import android.support.design.widget.BottomNavigationView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseFragment
-import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
-import com.dwarvesv.mvvm.view.home.HomeFragment
-import com.dwarvesv.mvvm.view.home.HomeViewModel
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.utils.disposebag.DisposeBag
+import {{packageName}}.view.home.HomeFragment
+import {{packageName}}.view.home.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
 

@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.utils.disposebag
+package {{packageName}}.utils.disposebag
 
 import android.arch.lifecycle.DefaultLifecycleObserver
 import android.arch.lifecycle.Lifecycle

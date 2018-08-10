@@ -1,10 +1,10 @@
-package com.dwarvesv.mvp.view.list
+package {{packageName}}.view.list
 
 
 import android.content.Context
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.repository.UserRepository
-import com.dwarvesv.mvp.utils.isNetworkConnected
+import {{packageName}}.R
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.utils.isNetworkConnected
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

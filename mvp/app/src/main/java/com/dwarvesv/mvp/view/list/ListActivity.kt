@@ -1,11 +1,11 @@
-package com.dwarvesv.mvp.view.list
+package {{packageName}}.view.list
 
 import android.os.Bundle
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseNoAppBarActivity
-import com.dwarvesv.mvp.data.model.User
-import com.dwarvesv.mvp.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
-import com.dwarvesv.mvp.view.detail.DetailActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
+import {{packageName}}.data.model.User
+import {{packageName}}.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
+import {{packageName}}.view.detail.DetailActivity
 import org.jetbrains.anko.intentFor
 
 

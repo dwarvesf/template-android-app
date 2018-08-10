@@ -1,12 +1,12 @@
-package com.dwarvesv.mvp.view.map
+package {{packageName}}.view.map
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseFragment
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

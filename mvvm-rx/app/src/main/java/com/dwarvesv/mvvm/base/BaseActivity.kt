@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.base
+package {{packageName}}.base
 
 
 import android.support.v4.app.Fragment

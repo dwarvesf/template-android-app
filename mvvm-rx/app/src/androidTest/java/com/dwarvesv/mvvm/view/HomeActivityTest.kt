@@ -1,12 +1,12 @@
-package com.dwarvesv.mvvm.view
+package {{packageName}}.view
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.view.main.MainActivity
+import {{packageName}}.R
+import {{packageName}}.view.main.MainActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

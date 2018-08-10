@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.data.model
+package {{packageName}}.data.model
 
 
 import android.arch.persistence.room.Entity

@@ -1,12 +1,12 @@
-package com.dwarvesv.mvvm.data.local
+package {{packageName}}.data.local
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-import com.dwarvesv.mvvm.data.local.user.UserDao
-import com.dwarvesv.mvvm.data.model.User
+import {{packageName}}.data.local.user.UserDao
+import {{packageName}}.data.model.User
 
 
 // https://developer.android.com/training/data-storage/room/index.html

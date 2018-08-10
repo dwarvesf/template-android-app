@@ -2,7 +2,7 @@
  * Copyright © Appus Studio LLC 2009 - 2015
  */
 
-package com.dwarvesv.mvvm.utils;
+package {{packageName}}.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

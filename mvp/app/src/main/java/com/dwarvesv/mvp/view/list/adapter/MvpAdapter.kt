@@ -1,10 +1,10 @@
-package com.dwarvesv.mvp.view.list.adapter
+package {{packageName}}.view.list.adapter
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.data.model.User
+import {{packageName}}.R
+import {{packageName}}.data.model.User
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 

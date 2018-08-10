@@ -1,9 +1,9 @@
-package com.dwarvesv.mvvm.utils
+package {{packageName}}.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.view.View
-import com.dwarvesv.mvvm.R
+import {{packageName}}.R
 
 fun getErrorHintEmail(isError: Boolean, context: Context): String? {
     if (isError)

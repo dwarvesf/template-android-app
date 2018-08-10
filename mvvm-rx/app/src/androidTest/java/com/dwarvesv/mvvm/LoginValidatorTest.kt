@@ -1,7 +1,7 @@
-package com.dwarvesv.mvvm
+package {{packageName}}
 
 import android.support.test.runner.AndroidJUnit4
-import com.dwarvesv.mvvm.utils.CheckValidUtils
+import {{packageName}}.utils.CheckValidUtils
 import junit.framework.Assert.assertFalse
 import junit.framework.Assert.assertTrue
 import org.junit.Test

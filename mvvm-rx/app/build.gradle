@@ -4,19 +4,22 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
+apply plugin: 'io.fabric'
+
 def ext = rootProject.ext
 
 android {
     compileSdkVersion ext.androidCompileSdkVersion
 
     defaultConfig {
-        applicationId "com.dwarvesv.mvvm"
         applicationId ext.androidApplicationId
         minSdkVersion ext.androidMinSdkVersion
         targetSdkVersion ext.androidTargetSdkVersion
         versionCode ext.androidVersionCode
         versionName ext.androidVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -33,6 +36,11 @@ android {
 
 androidExtensions {
     experimental = true
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
@@ -101,7 +109,9 @@ dependencies {
     implementation "com.github.sharish:ShimmerRecyclerView:$shimmerVersion"
 
     implementation 'com.airbnb.android:lottie:2.5.1'
-}
-repositories {
-    mavenCentral()
+
+    //fabric crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
+      transitive = true;
+    }
 }

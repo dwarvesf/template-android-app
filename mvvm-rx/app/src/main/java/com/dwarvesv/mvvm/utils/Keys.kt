@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.utils
+package {{packageName}}.utils
 
 class Keys {
 

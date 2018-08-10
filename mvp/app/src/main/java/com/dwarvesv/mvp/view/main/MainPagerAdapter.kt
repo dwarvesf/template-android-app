@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.view.main
+package {{packageName}}.view.main
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

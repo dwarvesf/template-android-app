@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.utils
+package {{packageName}}.utils
 
 import android.text.TextUtils
 import android.text.TextUtils.isEmpty

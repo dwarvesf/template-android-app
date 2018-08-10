@@ -1,9 +1,9 @@
-package com.dwarvesv.mvvm.view.splash
+package {{packageName}}.view.splash
 
 import android.os.Bundle
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseNoAppBarActivity
-import com.dwarvesv.mvvm.view.login.LoginActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
+import {{packageName}}.view.login.LoginActivity
 import org.jetbrains.anko.intentFor
 
 class SplashActivity : BaseNoAppBarActivity(), SplashFragment.InteractionListener {

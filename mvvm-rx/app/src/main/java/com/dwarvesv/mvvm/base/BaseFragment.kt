@@ -1,11 +1,11 @@
-package com.dwarvesv.mvvm.base
+package {{packageName}}.base
 
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
-import com.dwarvesv.mvvm.service.UserApi
-import com.dwarvesv.mvvm.service.UserService
+import {{packageName}}.service.UserApi
+import {{packageName}}.service.UserService
 
 abstract class BaseFragment : Fragment() {
 

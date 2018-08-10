@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.service
+package {{packageName}}.service
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
