@@ -1,10 +1,10 @@
-package com.dwarvesv.mvp.repository
+package {{packageName}}.repository
 
-import com.dwarvesv.mvp.data.model.User
-import com.dwarvesv.mvp.data.request.LoginRequest
-import com.dwarvesv.mvp.data.response.LoginResponse
-import com.dwarvesv.mvp.data.source.local.user.UserLocalDataSource
-import com.dwarvesv.mvp.service.UserApi
+import {{packageName}}.data.model.User
+import {{packageName}}.data.request.LoginRequest
+import {{packageName}}.data.response.LoginResponse
+import {{packageName}}.data.source.local.user.UserLocalDataSource
+import {{packageName}}.service.UserApi
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

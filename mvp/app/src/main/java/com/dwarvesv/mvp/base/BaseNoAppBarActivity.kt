@@ -1,7 +1,7 @@
-package com.dwarvesv.mvp.base
+package {{packageName}}.base
 
 import android.os.Bundle
-import com.dwarvesv.mvp.R
+import {{packageName}}.R
 
 
 open class BaseNoAppBarActivity : BaseActivity() {

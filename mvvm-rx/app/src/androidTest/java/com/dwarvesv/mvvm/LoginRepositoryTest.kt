@@ -1,10 +1,10 @@
-package com.dwarvesv.mvvm
+package {{packageName}}
 
 import android.support.test.InstrumentationRegistry
-import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
-import com.dwarvesv.mvvm.data.request.LoginRequest
-import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.service.UserService
+import {{packageName}}.data.local.user.UserLocalDataSource
+import {{packageName}}.data.request.LoginRequest
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.service.UserService
 import org.junit.Before
 import org.junit.Test
 

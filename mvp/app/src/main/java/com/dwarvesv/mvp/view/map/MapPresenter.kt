@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.view.map
+package {{packageName}}.view.map
 
 class MapPresenter(val view: MapContract.View) : MapContract.Presenter {
 

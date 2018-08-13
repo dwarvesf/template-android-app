@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view
+package {{packageName}}.view
 
 
 import android.content.Intent
@@ -9,10 +9,10 @@ import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.data.model.User
-import com.dwarvesv.mvvm.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
-import com.dwarvesv.mvvm.view.detail.DetailActivity
+import {{packageName}}.R
+import {{packageName}}.data.model.User
+import {{packageName}}.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
+import {{packageName}}.view.detail.DetailActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

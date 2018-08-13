@@ -1,10 +1,10 @@
-package com.dwarvesv.mvvm.view.list
+package {{packageName}}.view.list
 
 import android.os.Bundle
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseNoAppBarActivity
-import com.dwarvesv.mvvm.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
-import com.dwarvesv.mvvm.view.detail.DetailActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
+import {{packageName}}.utils.Keys.BundleKeys.BUNDLE_PARCELABLE_KEY_DATAMVP
+import {{packageName}}.view.detail.DetailActivity
 import org.jetbrains.anko.intentFor
 
 
@@ -25,7 +25,7 @@ class ListActivity : BaseNoAppBarActivity(), ListFragment.InteractionListener {
     }
 
 
-    override fun navigateToDetail(user: com.dwarvesv.mvvm.data.model.User) {
+    override fun navigateToDetail(user: {{packageName}}.data.model.User) {
         startActivity(intentFor<DetailActivity>(BUNDLE_PARCELABLE_KEY_DATAMVP to user))
     }
 

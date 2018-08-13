@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.utils
+package {{packageName}}.utils
 
 import android.app.Activity
 import android.content.Context

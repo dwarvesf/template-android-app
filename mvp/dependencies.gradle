@@ -1,16 +1,16 @@
 
 ext {
-    versionMajor = 0 // release number
-    versionMinor = 28 // #features
-    versionPatch = 0 // #bugs
+    versionMajor = 0
+    versionMinor = 0
+    versionPatch = 0
     versionBuild = 1
 
-    androidApplicationId = 'com.dwarvesv.mvp'
+    androidApplicationId = '{{packageName}}'
     androidVersionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
     androidVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
-    androidCompileSdkVersion = 28 // 8.0
-    androidTargetSdkVersion = 28 // 8.0
-    androidMinSdkVersion = 17 // 5.0
+    androidCompileSdkVersion = 28
+    androidTargetSdkVersion = 28
+    androidMinSdkVersion = 19
     kotlinVersion = "1.2.51"
 
 

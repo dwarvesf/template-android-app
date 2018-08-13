@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view
+package {{packageName}}.view
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso
@@ -8,8 +8,8 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.view.splash.SplashActivity
+import {{packageName}}.R
+import {{packageName}}.view.splash.SplashActivity
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -44,7 +44,7 @@ class LoginActivityTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.dwarvesv.mvvm", appContext.packageName)
+        assertEquals("{{packageName}}", appContext.packageName)
     }
 
     @Test

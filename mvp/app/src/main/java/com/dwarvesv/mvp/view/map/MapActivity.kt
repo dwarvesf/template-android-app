@@ -1,8 +1,8 @@
-package com.dwarvesv.mvp.view.map
+package {{packageName}}.view.map
 
 import android.os.Bundle
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseNoAppBarActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
 
 
 class MapActivity : BaseNoAppBarActivity(), MapFragment.InteractionListener {

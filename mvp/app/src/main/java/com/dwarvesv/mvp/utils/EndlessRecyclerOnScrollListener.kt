@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.utils
+package {{packageName}}.utils
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView

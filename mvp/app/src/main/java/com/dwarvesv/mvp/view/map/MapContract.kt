@@ -1,7 +1,7 @@
-package com.dwarvesv.mvp.view.map
+package {{packageName}}.view.map
 
-import com.dwarvesv.mvp.base.BasePresenter
-import com.dwarvesv.mvp.base.BaseView
+import {{packageName}}.base.BasePresenter
+import {{packageName}}.base.BaseView
 
 interface MapContract {
 

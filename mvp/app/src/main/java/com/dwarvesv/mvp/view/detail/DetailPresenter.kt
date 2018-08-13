@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.view.detail
+package {{packageName}}.view.detail
 
 class DetailPresenter(val view: DetailContract.View) : DetailContract.Presenter {
 

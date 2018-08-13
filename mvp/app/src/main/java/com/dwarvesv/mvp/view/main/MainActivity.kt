@@ -1,9 +1,9 @@
-package com.dwarvesv.mvp.view.main
+package {{packageName}}.view.main
 
 
 import android.os.Bundle
-import com.dwarvesv.mvp.R
-import com.dwarvesv.mvp.base.BaseNoAppBarActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseNoAppBarActivity
 
 
 class MainActivity : BaseNoAppBarActivity(), MainFragment.InteractionListener {

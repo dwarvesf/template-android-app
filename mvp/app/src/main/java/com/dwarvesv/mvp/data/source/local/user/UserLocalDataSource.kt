@@ -1,8 +1,8 @@
-package com.dwarvesv.mvp.data.source.local.user
+package {{packageName}}.data.source.local.user
 
 import android.content.Context
-import com.dwarvesv.mvp.data.model.User
-import com.dwarvesv.mvp.data.source.local.LocalDatabase
+import {{packageName}}.data.model.User
+import {{packageName}}.data.source.local.LocalDatabase
 import io.reactivex.Single
 
 class UserLocalDataSource(context: Context) : UserDataSource {

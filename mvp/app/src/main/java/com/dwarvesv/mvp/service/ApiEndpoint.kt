@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.service
+package {{packageName}}.service
 
 object ApiEndpoint {
 

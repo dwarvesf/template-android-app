@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.utils
+package {{packageName}}.utils
 
 object Constant {
     const val LIMIT = 10

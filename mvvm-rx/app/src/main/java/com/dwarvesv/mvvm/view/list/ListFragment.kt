@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view.list
+package {{packageName}}.view.list
 
 import android.content.Context
 import android.os.Bundle
@@ -7,15 +7,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseFragment
-import com.dwarvesv.mvvm.data.local.user.UserLocalDataSource
-import com.dwarvesv.mvvm.data.model.User
-import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.utils.Constant.LIMIT
-import com.dwarvesv.mvvm.utils.EndlessRecyclerOnScrollListener
-import com.dwarvesv.mvvm.utils.getVisibilityView
-import com.dwarvesv.mvvm.view.list.adapter.MvpAdapter
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.data.local.user.UserLocalDataSource
+import {{packageName}}.data.model.User
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.utils.Constant.LIMIT
+import {{packageName}}.utils.EndlessRecyclerOnScrollListener
+import {{packageName}}.utils.getVisibilityView
+import {{packageName}}.view.list.adapter.MvpAdapter
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_base_list.*
 import kotlinx.android.synthetic.main.layout_load_more.*
@@ -78,7 +78,7 @@ class ListFragment : BaseFragment() {
     private fun setUpRecyclerView() {
         linearLayoutManager = LinearLayoutManager(activity)
         mvpAdapter = MvpAdapter()
-        onScrollListener = object : com.dwarvesv.mvvm.utils.EndlessRecyclerOnScrollListener(linearLayoutManager) {
+        onScrollListener = object : {{packageName}}.utils.EndlessRecyclerOnScrollListener(linearLayoutManager) {
             override fun onLoadMore(currentOffset: Int) {
                 curOffset = currentOffset
                 viewModel.getListData(LIMIT, curOffset, false)

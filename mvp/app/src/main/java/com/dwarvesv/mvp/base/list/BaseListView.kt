@@ -1,4 +1,4 @@
-package com.dwarvesv.mvp.base.list
+package {{packageName}}.base.list
 
 import android.support.annotation.StringRes
 

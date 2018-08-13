@@ -1,9 +1,9 @@
-package com.dwarvesv.mvp.view.login
+package {{packageName}}.view.login
 
-import com.dwarvesv.mvp.base.BasePresenter
-import com.dwarvesv.mvp.base.BaseView
-import com.dwarvesv.mvp.data.request.LoginRequest
-import com.dwarvesv.mvp.data.response.LoginResponse
+import {{packageName}}.base.BasePresenter
+import {{packageName}}.base.BaseView
+import {{packageName}}.data.request.LoginRequest
+import {{packageName}}.data.response.LoginResponse
 
 
 interface LoginContract {

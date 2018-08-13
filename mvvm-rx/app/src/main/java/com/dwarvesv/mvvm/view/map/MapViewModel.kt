@@ -1,6 +1,6 @@
-package com.dwarvesv.mvvm.view.map
+package {{packageName}}.view.map
 
-import com.dwarvesv.mvvm.repository.UserRepository
+import {{packageName}}.repository.UserRepository
 
 interface MapViewModelInputs
 

@@ -1,16 +1,16 @@
-package com.dwarvesv.mvvm.view.home
+package {{packageName}}.view.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseFragment
-import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
-import com.dwarvesv.mvvm.utils.disposebag.disposedBy
-import com.dwarvesv.mvvm.view.list.ListActivity
-import com.dwarvesv.mvvm.view.main.MainPagerAdapter
-import com.dwarvesv.mvvm.view.map.MapActivity
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.utils.disposebag.DisposeBag
+import {{packageName}}.utils.disposebag.disposedBy
+import {{packageName}}.view.list.ListActivity
+import {{packageName}}.view.main.MainPagerAdapter
+import {{packageName}}.view.map.MapActivity
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.support.v4.intentFor

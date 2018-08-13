@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view.detail
+package {{packageName}}.view.detail
 
 import android.content.Context
 import android.os.Bundle
@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseFragment
-import com.dwarvesv.mvvm.data.model.User
-import com.dwarvesv.mvvm.utils.Keys
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.data.model.User
+import {{packageName}}.utils.Keys
 import kotlinx.android.synthetic.main.fragment_detail.*
 
 

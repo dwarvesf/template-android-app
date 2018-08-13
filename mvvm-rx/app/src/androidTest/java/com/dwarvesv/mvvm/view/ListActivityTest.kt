@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view
+package {{packageName}}.view
 
 
 import android.support.test.espresso.Espresso.onView
@@ -9,9 +9,9 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.view.list.ListActivity
-import com.dwarvesv.mvvm.view.list.adapter.MvpViewHolder
+import {{packageName}}.R
+import {{packageName}}.view.list.ListActivity
+import {{packageName}}.view.list.adapter.MvpViewHolder
 import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test

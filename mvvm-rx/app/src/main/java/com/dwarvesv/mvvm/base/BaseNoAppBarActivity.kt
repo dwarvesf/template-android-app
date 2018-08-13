@@ -1,8 +1,8 @@
-package com.dwarvesv.mvvm.base
+package {{packageName}}.base
 
 import android.os.Bundle
 import android.view.MenuItem
-import com.dwarvesv.mvvm.R
+import {{packageName}}.R
 
 
 open class BaseNoAppBarActivity : BaseActivity() {

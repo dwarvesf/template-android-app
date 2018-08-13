@@ -1,9 +1,9 @@
-package com.dwarvesv.mvvm.view.login
+package {{packageName}}.view.login
 
-import com.dwarvesv.mvvm.data.request.LoginRequest
-import com.dwarvesv.mvvm.data.response.LoginResponse
-import com.dwarvesv.mvvm.repository.UserRepository
-import com.dwarvesv.mvvm.utils.CheckValidUtils
+import {{packageName}}.data.request.LoginRequest
+import {{packageName}}.data.response.LoginResponse
+import {{packageName}}.repository.UserRepository
+import {{packageName}}.utils.CheckValidUtils
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction

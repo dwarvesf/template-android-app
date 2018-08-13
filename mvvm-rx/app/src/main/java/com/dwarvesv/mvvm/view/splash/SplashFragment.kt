@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view.splash
+package {{packageName}}.view.splash
 
 import android.content.Context
 import android.os.Bundle
@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.airbnb.lottie.LottieComposition
 import com.airbnb.lottie.OnCompositionLoadedListener
-import com.dwarvesv.mvvm.R
-import com.dwarvesv.mvvm.base.BaseFragment
-import com.dwarvesv.mvvm.utils.disposebag.DisposeBag
-import com.dwarvesv.mvvm.utils.disposebag.disposedBy
+import {{packageName}}.R
+import {{packageName}}.base.BaseFragment
+import {{packageName}}.utils.disposebag.DisposeBag
+import {{packageName}}.utils.disposebag.disposedBy
 import com.jakewharton.rxbinding2.view.RxView
 
 import kotlinx.android.synthetic.main.fragment_splash.*

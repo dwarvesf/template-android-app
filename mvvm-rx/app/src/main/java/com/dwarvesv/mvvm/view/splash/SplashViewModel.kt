@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view.splash
+package {{packageName}}.view.splash
 
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject

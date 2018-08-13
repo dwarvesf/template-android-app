@@ -1,7 +1,7 @@
-package com.dwarvesv.mvp.view.login
+package {{packageName}}.view.login
 
-import com.dwarvesv.mvp.data.request.LoginRequest
-import com.dwarvesv.mvp.repository.UserRepository
+import {{packageName}}.data.request.LoginRequest
+import {{packageName}}.repository.UserRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

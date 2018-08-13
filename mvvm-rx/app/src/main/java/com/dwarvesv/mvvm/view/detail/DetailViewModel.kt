@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.view.detail
+package {{packageName}}.view.detail
 
 interface DetailViewModelInputs
 

@@ -1,7 +1,7 @@
-package com.dwarvesv.mvvm.data.local.user
+package {{packageName}}.data.local.user
 
 import android.arch.persistence.room.*
-import com.dwarvesv.mvvm.data.model.User
+import {{packageName}}.data.model.User
 
 /**
  * Data Access Object for the users table.

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mvp Boilerplate</string>
+    <string name="app_name">{{appName}}</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -7,7 +7,7 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
 
-    <string name="google_maps_key">AIzaSyCRWRci5k3nJwBoNgVomfGlYHsjWns5D4g</string>
+    <string name="google_maps_key">{{googleApiKey}}</string>
     <string name="login_failed">Login Failed</string>
     <string name="error">Error</string>
 

@@ -1,4 +1,4 @@
-package com.dwarvesv.mvvm.base
+package {{packageName}}.base
 
 interface BaseView<T> {
 
